@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebra 2 CBE Course</title>
+<style>
+:root {
+  --navy: #14284b;
+  --blue: #326ac0;
+  --light: #e8f0ff;
+  --bg: #f5f7fb;
+  --border: #dbe3ef;
+  --text: #17243a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+header {
+  background: var(--navy);
+  color: white;
+  padding: 24px;
+}
+header h1 { margin: 0; }
+header p { color: #d9e5fb; }
+.progress {
+  height: 8px;
+  background: #536785;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress span {
+  display: block;
+  height: 100%;
+  background: #83adff;
+  width: 0%;
+}
+.layout {
+  max-width: 1200px;
+  margin: 22px auto;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 20px;
+}
+nav, .panel, .lesson, .module {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+nav { padding: 8px; height: max-content; }
+nav button {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: white;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 7px;
+}
+nav button:hover, nav button.active {
+  background: var(--light);
+  color: var(--blue);
+}
+.panel, .lesson { padding: 20px; margin-bottom: 16px; }
+.module {
+  padding: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.module:hover { border-color: var(--blue); }
+button.action {
+  background: var(--blue);
+  color: white;
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 15px;
+  cursor: pointer;
+  margin: 5px 4px 5px 0;
+}
+button.secondary {
+  background: white;
+  color: var(--blue);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.math {
+  background: #f0f4fa;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+  margin: 12px 0;
+}
+.option {
+  display: block;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  cursor: pointer;
+}
+.feedback {
+  background: #eaf2ff;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+}
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #bdc9da;
+  border-radius: 7px;
+  font: inherit;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.stat {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+.stat strong {
+  display: block;
+  color: var(--blue);
+  font-size: 1.5rem;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #607087;
+  font-size: 0.9rem;
+}
+@media(max-width:700px) {
+  .layout { grid-template-columns: 1fr; }
+  nav { display: grid; grid-template-columns: 1fr 1fr; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Algebra 2 CBE</h1>
+  <p>Your self-paced Algebra 2 study course</p>
+  <div class="progress"><span id="progressBar"></span></div>
+  <p id="progressText">0% complete</p>
+</header>
+
+<div class="layout">
+  <nav id="navigation">
+    <button class="active" onclick="showPage('Home',this)">Home</button>
+    <button onclick="showPage('Modules',this)">Modules</button>
+    <button onclick="showPage('Practice',this)">Practice</button>
+    <button onclick="showPage('Formula Sheet',this)">Formula Sheet</button>
+    <button onclick="showPage('Notes',this)">My Notes</button>
+    <button onclick="showPage('Progress',this)">Progress</button>
+  </nav>
+  <main id="app"></main>
+</div>
+
+<footer>
+  Independent study resource. Confirm the official CBE objectives and
+  testing requirements with your school counselor.
+</footer>
+
+<script>
+const modules = [
+{
+ title:"Foundations and Functions",
+ lessons:[
+  ["Expressions and Equations",
+   "Simplify expressions using order of operations, distribution, and like terms.",
+   "3(2x - 4) + 5x = 11x - 12",
+   "Simplify 4(2x + 3) - 5x.",
+   ["3x + 12","8x + 12","3x - 12","13x + 12"],0,
+   "Distribute: 8x + 12 - 5x = 3x + 12."],
+  ["Linear Equations and Inequalities",
+   "Solve multistep equations and inequalities.",
+   "2(3x - 4) + 5 = 19 gives x = 11/3.",
+   "Solve 5x - 8 = 27.",
+   ["5","7","19","35"],1,
+   "Add 8: 5x = 35. Divide by 5: x = 7."],
+  ["Systems of Equations",
+   "Solve systems using substitution and elimination.",
+   "x + y = 9 and x - y = 1 gives (x,y) = (5,4).",
+   "Solve x + y = 10 and x - y = 2.",
+   ["(4,6)","(6,4)","(5,5)","(8,2)"],1,
+   "Add equations: 2x = 12, so x = 6 and y = 4."],
+  ["Absolute Value",
+   "Solve absolute value equations.",
+   "|x - 2| = 5 gives x = 7 or x = -3.",
+   "Solve |x + 3| = 4.",
+   ["x = 1 or -7","x = 7 or -1","x = 1 only","x = -7 only"],0,
+   "x + 3 = 4 or x + 3 = -4."],
+  ["Function Notation",
+   "Evaluate functions and identify inputs and outputs.",
+   "If f(x) = 2x² - 1, then f(3) = 17.",
+   "If f(x) = 3x - 4, find f(-2).",
+   ["-10","-2","2","10"],0,
+   "3(-2) - 4 = -10."]
+ ]
+},
+{
+ title:"Quadratic Functions",
+ lessons:[
+  ["Introduction to Quadratics","Recognize quadratic functions and parabolas.","y = (x - 2)² + 3 has vertex (2,3).","Does y = -2x² + 1 open up or down?",["Up","Down"],1,"A negative leading coefficient means the parabola opens down."],
+  ["Factoring Trinomials","Factor quadratic expressions.","x² + 7x + 12 = (x + 3)(x + 4).","Factor x² - x - 12.",["(x - 4)(x + 3)","(x + 4)(x - 3)","(x - 6)(x + 2)"],0,"-4 times 3 is -12 and their sum is -1."],
+  ["Completing the Square","Rewrite quadratics in vertex form.","x² + 6x + 2 = (x + 3)² - 7.","Rewrite x² + 8x + 3.",["(x + 4)² - 13","(x + 8)² + 3","(x + 4)² + 13"],0,"Add and subtract 16."],
+  ["Quadratic Formula","Solve quadratic equations.","x = (-b ± √(b² - 4ac))/(2a).","How many distinct real roots does x² + 4x + 4 = 0 have?",["0","1","2"],1,"The discriminant is zero, so there is one repeated real root."],
+  ["Graphing Parabolas","Find the vertex and axis of symmetry.","Axis of symmetry: x = -b/(2a).","Find the axis for y = x² + 6x + 1.",["x = 3","x = -3","x = 6"],1,"x = -6/2 = -3."]
+ ]
+},
+{
+ title:"Polynomials and Complex Numbers",
+ lessons:[
+  ["Polynomial Operations","Add and multiply polynomials.","(x + 3)(x - 2) = x² + x - 6.","Expand (x + 2)(x + 5).",["x² + 7x + 10","x² + 10","x² + 3x + 10"],0,"Multiply each term and combine like terms."],
+  ["Special Factoring Patterns","Use common factors and difference of squares.","a² - b² = (a - b)(a + b).","Factor 4x² - 25.",["(2x - 5)(2x + 5)","(4x - 5)(x + 5)","(2x - 5)²"],0,"This is a difference of squares."],
+  ["Polynomial Zeros","Connect factors to zeros.","If x - 3 is a factor, then 3 is a zero.","Find the zero of x - 7.",["-7","0","7"],2,"Set x - 7 = 0."],
+  ["Complex Numbers","Use i² = -1.","√(-9) = 3i.","Simplify (3i)(2i).",["6","6i","-6"],2,"6i² = -6."]
+ ]
+},
+{
+ title:"Rational Expressions and Radicals",
+ lessons:[
+  ["Rational Expressions","Simplify algebraic fractions and note restrictions.","(x² - 9)/(x - 3) = x + 3, where x ≠ 3.","Simplify (x² - 16)/(x - 4).",["x + 4, x ≠ 4","x - 4","x + 4"],0,"Factor and cancel, but keep the original restriction."],
+  ["Rational Equations","Solve equations with variable denominators.","Always check for excluded values.","Solve 2/x = 1/3.",["x = 2","x = 6","x = 1/6"],1,"Multiply both sides by 3x."],
+  ["Radical Expressions","Simplify square roots.","√72 = 6√2.","Simplify √50.",["5√2","25√2","10√5"],0,"√50 = √25 × √2."],
+  ["Rational Exponents","Convert fractional exponents to radicals.","16^(3/4) = 8.","Evaluate 27^(2/3).",["6","9","18"],1,"The cube root of 27 is 3; 3² = 9."]
+ ]
+},
+{
+ title:"Exponential and Logarithmic Functions",
+ lessons:[
+  ["Exponent Rules","Apply exponent properties.","a³ × a⁵ = a⁸.","Simplify x⁴ × x⁻⁶.",["x²","1/x²","x¹⁰"],1,"Add exponents: x⁻² = 1/x²."],
+  ["Exponential Growth and Decay","Model repeated percentage change.","Growth: A = P(1 + r)^t.","A quantity of 200 decays by 10%. What remains?",["20","180","190"],1,"200 × 0.9 = 180."],
+  ["Logarithms","Convert between logarithmic and exponential form.","log₂ 8 = 3 because 2³ = 8.","Evaluate log₃ 81.",["3","4","9"],1,"3⁴ = 81."],
+  ["Logarithm Properties","Expand and condense logarithms.","log(MN) = log M + log N.","Expand log₅(25x).",["2 + log₅x","25 + log₅x","2log₅x"],0,"log₅25 = 2."]
+ ]
+},
+{
+ title:"Sequences, Transformations, and Modeling",
+ lessons:[
+  ["Sequences","Identify arithmetic and geometric sequences.","Arithmetic: aₙ = a₁ + (n - 1)d.","Find the fifth term of 2, 6, 18, ...",["54","81","162"],2,"The ratio is 3, so 2 × 3⁴ = 162."],
+  ["Function Transformations","Describe shifts and reflections.","y = (x - 3)² + 2 shifts right 3 and up 2.","Where does y = (x + 2)² - 1 shift?",["Right 2, up 1","Left 2, down 1","Left 2, up 1"],1,"The plus inside shifts left; -1 shifts down."],
+  ["Inverse Functions","Find inverse functions.","For f(x) = 2x + 6, the inverse is (x - 6)/2.","Find the inverse of f(x) = x - 4.",["x - 4","x + 4","4 - x"],1,"Swap x and y, then solve for y."],
+  ["Mathematical Modeling","Interpret predictions and residuals.","Residual = observed value - predicted value.","Predicted value is 18; actual value is 15. Find the residual.",["3","-3","33"],1,"15 - 18 = -3."]
+ ]
+}
+];
+
+const allLessons = modules.reduce((n,m)=>n+m.lessons.length,0);
+let completed = JSON.parse(localStorage.getItem("a2_completed") || "[]");
+let notes = JSON.parse(localStorage.getItem("a2_notes") || "[]");
+let currentModule = 0, currentLesson = 0;
+let practiceAnswers = {}, submitted = false;
+const app = document.getElementById("app");
+
+function updateProgress() {
+  const percent = Math.round(completed.length / allLessons * 100);
+  document.getElementById("progressBar").style.width = percent + "%";
+  document.getElementById("progressText").textContent =
+    `${percent}% complete · ${completed.length}/${allLessons} lessons`;
+  localStorage.setItem("a2_completed", JSON.stringify(completed));
+}
+function showPage(page, button) {
+  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+  if(button) button.classList.add("active");
+  render(page);
+}
+function panel(title, html) {
+  const e = document.createElement("section");
+  e.className = "panel";
+  e.innerHTML = `<h2>${title}</h2>${html}`;
+  return e;
+}
+function action(label, callback, secondary=false) {
+  const b = document.createElement("button");
+  b.className = secondary ? "secondary" : "action";
+  b.textContent = label;
+  b.onclick = callback;
+  return b;
+}
+function openLesson(m,l) {
+  currentModule=m; currentLesson=l;
+  render("Lesson");
+}
+function render(page="Home") {
+  updateProgress();
+  app.innerHTML="";
+  if(page==="Home") {
+    app.append(panel("Course Dashboard",`
+      <div class="stat-grid">
+        <div class="stat"><strong>${modules.length}</strong>Modules</div>
+        <div class="stat"><strong>${completed.length}</strong>Lessons completed</div>
+        <div class="stat"><strong>${Math.round(completed.length/allLessons*100)}%</strong>Progress</div>
+      </div>`));
+    app.append(panel("Continue Learning",`
+      <p>Module ${currentModule+1}: ${modules[currentModule].title}</p>
+      <h3>${modules[currentModule].lessons[currentLesson][0]}</h3>
+      <p>Study the notes, read the example, and answer the lesson check.</p>`));
+    app.lastChild.append(action("Open lesson",()=>openLesson(currentModule,currentLesson)));
+    app.append(panel("Course Roadmap",modules.map((m,i)=>
+      `<div class="module" onclick="openModule(${i})">
+      <h3>${i+1}. ${m.title}</h3>
+      <p>${m.lessons.length} lessons</p></div>`).join("")));
+  }
+  else if(page==="Modules") {
+    modules.forEach((m,i)=>{
+      const p=panel(`${i+1}. ${m.title}`,`<p>${m.lessons.length} lessons</p>`);
+      p.append(action("Open module",()=>openModule(i)));
+      app.append(p);
+    });
+  }
+  else if(page==="Module") {
+    const m=modules[currentModule];
+    app.append(panel(m.title,`<p>Complete each lesson and its check question.</p>`));
+    m.lessons.forEach((l,j)=>{
+      const p=panel(`${completed.includes(currentModule+"-"+j)?"✓ ":""}Lesson ${j+1}: ${l[0]}`,
+        `<p>${l[1]}</p>`);
+      p.append(action("Open lesson",()=>openLesson(currentModule,j)));
+      app.append(p);
+    });
+  }
+  else if(page==="Lesson") renderLesson();
+  else if(page==="Practice") renderPractice();
+  else if(page==="Formula Sheet") renderFormulaSheet();
+  else if(page==="Notes") renderNotes();
+  else if(page==="Progress") renderProgress();
+}
+function openModule(i) {
+  currentModule=i; currentLesson=0;
+  render("Module");
+}
+function renderLesson() {
+  const l=modules[currentModule].lessons[currentLesson];
+  app.append(panel(`${modules[currentModule].title} · ${l[0]}`,
+    `<h3>Learning objective</h3><p>${l[1]}</p>
+     <h3>Worked example</h3><div class="math">${l[2]}</div>
+     <p>Write down the important steps and check that your answer satisfies the original problem.</p>`));
+  const p=panel("Lesson Check",`<p>${l[3]}</p>`);
+  l[4].forEach((o,i)=>{
+    p.insertAdjacentHTML("beforeend",
+      `<label class="option"><input type="radio" name="lessonAnswer" value="${i}"> ${o}</label>`);
+  });
+  p.append(action("Check answer",()=>{
+    const chosen=p.querySelector("input:checked");
+    if(!chosen){alert("Select an answer first.");return;}
+    let f=p.querySelector(".feedback");
+    if(!f){f=document.createElement("div");f.className="feedback";p.append(f);}
+    f.innerHTML=(Number(chosen.value)===l[5]?"<b>Correct.</b> ":"<b>Review:</b> ")+l[6];
+  },true));
+  app.append(p);
+  const row=document.createElement("div");
+  row.append(action("Back to module",()=>render("Module"),true));
+  row.append(action("Mark complete and continue",()=>{
+    const key=currentModule+"-"+currentLesson;
+    if(!completed.includes(key))completed.push(key);
+    updateProgress();
+    if(currentLesson<modules[currentModule].lessons.length-1) currentLesson++;
+    render("Lesson");
+  }));
+  app.append(row);
+}
+function renderPractice() {
+  const qs=[
+    ["Factor x² + 9x + 20.",["(x+4)(x+5)","(x+2)(x+10)","(x-4)(x-5)"],0,"4 and 5 multiply to 20 and add to 9."],
+    ["Solve 3x - 7 = 14.",["x=5","x=7","x=9"],1,"Add 7, then divide by 3."],
+    ["If f(x)=2x²-1, find f(3).",["11","17","18"],1,"2(3²)-1=17."],
+    ["Solve x² - 5x + 6 = 0.",["x=2 or 3","x=-2 or -3","x=1 or 6"],0,"Factor into (x-2)(x-3)=0."],
+    ["Evaluate log₃81.",["3","4","9"],1,"3⁴=81."]
+  ];
+  qs.forEach((q,i)=>{
+    const p=panel(`Question ${i+1}`,`<p>${q[0]}</p>`);
+    q[1].forEach((o,j)=>{
+      p.insertAdjacentHTML("beforeend",
+       `<label class="option"><input type="radio" name="q${i}" value="${j}" ${submitted?"disabled":""}> ${o}</label>`);
+      p.querySelectorAll(`input[name="q${i}"]`)[j].checked=practiceAnswers[i]===j;
+      p.querySelectorAll(`input[name="q${i}"]`)[j].onchange=e=>practiceAnswers[i]=Number(e.target.value);
+    });
+    if(submitted) p.insertAdjacentHTML("beforeend",
+      `<div class="feedback">${practiceAnswers[i]===q[2]?"Correct.":"Review: "+q[3]}</div>`);
+    app.append(p);
+  });
+  if(!submitted) app.append(action("Submit practice",()=>{
+    if(qs.some((q,i)=>practiceAnswers[i]===undefined)){alert("Answer every question.");return;}
+    submitted=true;render("Practice");
+  }));
+  else {
+    const score=qs.filter((q,i)=>practiceAnswers[i]===q[2]).length;
+    app.append(panel("Result",`<h3>${score}/${qs.length}</h3><p>Review explanations before retrying.</p>`));
+    app.append(action("Retry",()=>{practiceAnswers={};submitted=false;render("Practice");},true));
+  }
+}
+function renderFormulaSheet() {
+  const formulas=[
+    ["Slope","m = (y₂-y₁)/(x₂-x₁)"],
+    ["Quadratic formula","x = (-b ± √(b²-4ac))/(2a)"],
+    ["Axis of symmetry","x = -b/(2a)"],
+    ["Difference of squares","a²-b² = (a-b)(a+b)"],
+    ["Exponent rules","aᵐaⁿ=aᵐ⁺ⁿ; (aᵐ)ⁿ=aᵐⁿ; a⁻ⁿ=1/aⁿ"],
+    ["Logarithms","log_b(x)=y means bʸ=x"],
+    ["Arithmetic sequence","aₙ=a₁+(n-1)d"],
+    ["Geometric sequence","aₙ=a₁rⁿ⁻¹"],
+    ["Growth","A=P(1+r)ᵗ"],
+    ["Decay","A=P(1-r)ᵗ"],
+    ["Complex numbers","i²=-1"]
+  ];
+  formulas.forEach(f=>app.append(panel(f[0],`<div class="math">${f[1]}</div>`)));
+}
+function renderNotes() {
+  app.append(panel("Add a Note",`<textarea id="noteText" placeholder="Write a formula, question, or mistake to review..."></textarea>`));
+  app.lastChild.append(action("Save note",()=>{
+    const text=document.getElementById("noteText").value.trim();
+    if(text){notes.push(text);localStorage.setItem("a2_notes",JSON.stringify(notes));render("Notes");}
+  }));
+  notes.forEach((n,i)=>{
+    const p=panel("Note",`<p>${n.replace(/</g,"&lt;")}</p>`);
+    p.append(action("Delete",()=>{
+      notes.splice(i,1);
+      localStorage.setItem("a2_notes",JSON.stringify(notes));
+      render("Notes");
+    },true));
+    app.append(p);
+  });
+}
+function renderProgress() {
+  app.append(panel("Overall Progress",
+    `<div class="stat-grid">
+      <div class="stat"><strong>${completed.length}/${allLessons}</strong>Lessons</div>
+      <div class="stat"><strong>${Math.round(completed.length/allLessons*100)}%</strong>Complete</div>
+      <div class="stat"><strong>${modules.length}</strong>Modules</div>
+    </div>`));
+  modules.forEach((m,i)=>{
+    const n=m.lessons.filter((l,j)=>completed.includes(i+"-"+j)).length;
+    app.append(panel(m.title,`<p>${n}/${m.lessons.length} lessons complete</p>`));
+  });
+}
+</script>
+</body>
+</html>
