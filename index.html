@@ -3,271 +3,805 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Algebra 2 CBE Study Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebra 2 CBE Academy</title>
 <style>
-:root{--bg:#0b1020;--panel:#141e33;--panel2:#1b2944;--line:#2c3c5b;--text:#eef3ff;--muted:#a1afca;--blue:#83aaff;--cyan:#65e0d0;--green:#73e1a1;--gold:#ffd166;--red:#ff8999}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top left,#1c3154,transparent 45%),var(--bg);color:var(--text);font:15px/1.6 system-ui,Segoe UI,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:1450px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px}.brand{display:flex;gap:12px;align-items:center}.logo{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#091326;font-size:25px;font-weight:900}.brand h1{font-size:18px;margin:0}.brand p{margin:0;color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 13px;border-radius:10px;font-weight:650}.btn:hover{border-color:var(--blue)}.primary{background:var(--blue);color:#081328;border-color:transparent}.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px}.sidebar,.panel,.stat,.module,.lesson{border:1px solid var(--line);background:linear-gradient(145deg,#151f35,#10182a);border-radius:16px}.sidebar{padding:14px;height:max-content;position:sticky;top:12px}.side-label{color:var(--muted);font-size:10px;letter-spacing:1.5px;margin:10px 9px}.nav{display:grid;gap:5px}.nav button{border:0;text-align:left;background:transparent;color:var(--muted);padding:10px;border-radius:9px}.nav button.active,.nav button:hover{background:#283957;color:white}.main{min-width:0}.page{display:none}.page.active{display:block}.hero{padding:27px;border-radius:20px;background:linear-gradient(120deg,#243b61,#153344);border:1px solid #3a5579;margin-bottom:16px}.eyebrow{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);font-weight:800}.hero h2{font-size:clamp(26px,4vw,39px);line-height:1.15;margin:8px 0}.hero p{color:#c2cde0;max-width:650px}.hero-buttons{display:flex;gap:9px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-bottom:15px}.stat{padding:15px}.muted,.sub{color:var(--muted);font-size:12px}.big{font-size:28px;font-weight:850;margin:5px 0}.panel{padding:18px;margin-bottom:15px}.progress{height:9px;border-radius:20px;background:#293650;overflow:hidden;margin:10px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .25s}.progress-label{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted)}.heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:24px 0 12px}.heading h3{margin:0;font-size:20px}.heading p{margin:3px 0;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.module{padding:16px}.module h4{margin:0 0 5px}.module p{margin:0;color:var(--muted);font-size:12px}.module-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:14px}.track{height:5px;background:#293650;border-radius:20px;margin-top:12px;overflow:hidden}.track span{display:block;height:100%;background:var(--cyan)}.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}.streakbox{padding:15px;background:#322c26;border:1px solid #66513a;border-radius:12px;margin-bottom:15px}.streaknum{font-size:34px;color:var(--gold);font-weight:900}.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px}.day{text-align:center;font-size:10px;color:var(--muted)}.dot{width:27px;height:27px;display:grid;place-items:center;margin:5px auto;border:1px solid #6a5940;border-radius:8px}.dot.done{background:var(--gold);color:#201a0b}.activity{padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;display:flex;justify-content:space-between;gap:10px}.activity:last-child{border:0}.search,textarea,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#0c1425;color:var(--text);outline:none}.search:focus,textarea:focus{border-color:var(--blue)}.lesson-list{display:grid;gap:9px}.lesson{padding:13px;display:flex;align-items:center;gap:12px}.lesson-num{width:34px;height:34px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:#263957}.lesson-info{flex:1;min-width:0}.lesson-info strong{display:block;font-size:14px}.lesson-info small{color:var(--muted)}.donecheck{color:var(--green)}.lesson-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:13px}.lesson-content h2{margin:4px 0 10px}.lesson-content h3{margin-top:22px}.formula{background:#0b1425;border:1px solid #304361;border-radius:11px;padding:13px;margin:12px 0;font-family:ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}.example{border-left:3px solid var(--cyan);background:#14283a;border-radius:0 10px 10px 0;padding:13px;margin:12px 0}.option{display:block;width:100%;text-align:left;padding:12px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:#111b30;color:var(--text)}.option.selected{border-color:var(--blue)}.option.correct{border-color:var(--green)}.option.wrong{border-color:var(--red)}.feedback{padding:12px;background:#14283a;border-radius:10px;margin-top:12px}.formula-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.formula-card{padding:13px;background:#111b30;border:1px solid var(--line);border-radius:10px}.formula-card h4{margin:0 0 5px}.formula-card code{color:var(--cyan);white-space:pre-wrap}.tag{font-size:10px;border:1px solid var(--line);padding:4px 7px;border-radius:7px;color:var(--muted)}.empty{padding:25px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.toast{display:none;position:fixed;right:18px;bottom:18px;background:#e6fff6;color:#09251e;padding:12px 16px;border-radius:10px;font-weight:750;z-index:5}.footer{text-align:center;font-size:11px;color:#7484a3;padding:24px 0}.checkrow{display:flex;gap:9px;margin:13px 0;font-size:13px}.checkrow input{accent-color:var(--cyan)}.quiz-top{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}
-@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:static}.nav{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.cols,.lesson-layout{grid-template-columns:1fr}}
-@media(max-width:600px){.app{padding:11px}.top{align-items:flex-start}.actions .btn{font-size:11px;padding:8px}.grid,.formula-grid{grid-template-columns:1fr}.hero{padding:19px}.nav{grid-template-columns:repeat(2,1fr)}.lesson{align-items:flex-start;flex-wrap:wrap}.lesson-info{min-width:60%}.heading{align-items:flex-start;flex-direction:column}}
+:root {
+  --bg:#f7f8fc; --panel:#fff; --text:#192235; --muted:#667085;
+  --line:#e5e8f0; --blue:#3659d9; --blue2:#edf1ff;
+  --green:#16865b; --red:#c53b45; --orange:#b96a13;
+  --shadow:0 5px 22px #1725540a;
+}
+* {box-sizing:border-box}
+body {margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65}
+button,input,textarea,select {font:inherit}
+button {cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible {outline:3px solid #9eb2ff;outline-offset:2px}
+header {height:66px;background:var(--panel);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px;position:sticky;top:0;z-index:5}
+.brand {font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px}
+.brand-icon {background:var(--blue);color:white;padding:4px 9px;border-radius:9px}
+.header-right {display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px}
+.app {display:grid;grid-template-columns:255px minmax(0,1fr);min-height:calc(100vh - 66px)}
+aside {background:var(--panel);border-right:1px solid var(--line);padding:22px 15px}
+.nav-label {font-size:11px;letter-spacing:1.2px;font-weight:800;color:var(--muted);padding:10px 12px}
+.nav-btn {width:100%;text-align:left;padding:11px 12px;border:0;background:transparent;border-radius:9px;color:#485269;display:flex;gap:10px;align-items:center;margin:3px 0;font-size:14px}
+.nav-btn:hover,.nav-btn.active {background:var(--blue2);color:var(--blue);font-weight:700}
+.nav-icon {width:22px;text-align:center}
+.side-progress {margin:25px 8px 0;padding:15px;background:var(--bg);border-radius:12px;font-size:12px}
+main {padding:32px;min-width:0;max-width:1350px;width:100%;margin:0 auto}
+h1,h2,h3,h4 {line-height:1.3;margin-top:0}
+h1 {font-size:clamp(27px,4vw,36px);letter-spacing:-.8px;margin-bottom:8px}
+h2 {font-size:24px;letter-spacing:-.3px}
+h3 {font-size:18px}
+p {margin:9px 0 15px}
+.muted {color:var(--muted)}
+.small {font-size:12px}
+.eyebrow {font-size:12px;text-transform:uppercase;letter-spacing:1.1px;color:var(--blue);font-weight:800}
+.page-head {margin-bottom:25px}
+.page-head p {color:var(--muted);max-width:750px}
+.grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.two-col {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card {background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:21px;box-shadow:var(--shadow);min-width:0}
+.stat {font-size:30px;font-weight:800;letter-spacing:-1px;margin:5px 0}
+.stat-label {font-size:13px;color:var(--muted)}
+.btn {border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:9px;padding:10px 15px;font-weight:700;font-size:13px}
+.btn:hover {border-color:#aab8f7}
+.btn.primary {background:var(--blue);border-color:var(--blue);color:white}
+.btn.primary:hover {background:#2848bf}
+.btn.soft {background:var(--blue2);color:var(--blue);border-color:transparent}
+.btn.danger {color:var(--red)}
+.btn:disabled {opacity:.45;cursor:not-allowed}
+.row {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.progress {height:8px;background:#e9ecf3;border-radius:30px;overflow:hidden}
+.progress > div {height:100%;background:var(--blue);border-radius:30px;transition:width .25s}
+.unit-card {display:flex;flex-direction:column;gap:12px}
+.unit-top {display:flex;align-items:center;justify-content:space-between;gap:10px}
+.unit-icon {width:42px;height:42px;display:grid;place-items:center;background:var(--blue2);color:var(--blue);font-weight:800;border-radius:12px}
+.pill {display:inline-block;background:#f0f2f7;border-radius:20px;padding:3px 9px;font-size:11px;color:#596176;font-weight:700}
+.pill.green {background:#e4f7ed;color:var(--green)}
+.pill.orange {background:#fff1dc;color:var(--orange)}
+.lesson-list {display:grid;gap:9px}
+.lesson-row {border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:15px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;width:100%;color:var(--text)}
+.lesson-row:hover {border-color:#a6b6ff;background:#fbfcff}
+.lesson-check {height:27px;width:27px;border-radius:50%;border:1px solid #d6dbe7;display:grid;place-items:center;flex-shrink:0;font-size:13px}
+.lesson-check.done {background:#dcf7e8;border-color:#b9e9cf;color:var(--green)}
+.lesson-row strong {display:block;font-size:14px}
+.lesson-row small {display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.lesson-row .arrow {margin-left:auto;color:var(--muted)}
+.lesson-content {max-width:850px;margin:auto}
+.lesson-nav {display:flex;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.lesson-block {background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:22px;margin:17px 0}
+.lesson-block h2 {font-size:20px}
+.lesson-block h3 {font-size:16px;margin-bottom:8px}
+.math {background:#f5f7ff;border:1px solid #e3e8ff;border-radius:10px;padding:16px;margin:12px 0;text-align:center;font-family:"Cambria Math",Cambria,serif;font-size:clamp(19px,3vw,25px);overflow-wrap:anywhere}
+.step {border-left:3px solid #b8c6ff;padding:5px 0 5px 16px;margin:14px 0}
+.step strong {display:block;margin-bottom:4px}
+.note {padding:13px 15px;border-radius:9px;background:#edf3ff;border-left:4px solid var(--blue);margin:13px 0}
+.warning {background:#fff5e8;border-left-color:#d58b24}
+.success-note {background:#eaf8f0;border-left-color:var(--green)}
+.practice-card {background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin:16px 0}
+.answer {display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--line);border-radius:9px;margin:9px 0;cursor:pointer}
+.answer:hover {background:#f7f8ff;border-color:#b8c5ff}
+.answer input {margin-top:6px;accent-color:var(--blue)}
+.answer.correct {border-color:#6bc79b;background:#eaf8f0}
+.answer.incorrect {border-color:#e7a0a5;background:#fff0f0}
+.feedback {padding:14px;border-radius:10px;margin-top:14px;background:#f1f3f8}
+.feedback.good {background:#e8f7ef;color:#176744}
+.feedback.bad {background:#fff0f0;color:#a82e38}
+textarea {width:100%;min-height:110px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--panel);color:var(--text)}
+input[type=text],input[type=number],select {border:1px solid var(--line);border-radius:9px;padding:10px;background:var(--panel);color:var(--text);max-width:100%}
+table {border-collapse:collapse;width:100%;margin:12px 0}
+th,td {text-align:left;padding:10px;border-bottom:1px solid var(--line)}
+th {background:#f5f6fb;font-size:13px}
+details {border:1px solid var(--line);border-radius:10px;padding:13px;margin:9px 0}
+summary {font-weight:700;cursor:pointer}
+.hidden {display:none!important}
+footer {padding:30px 0;color:var(--muted);font-size:12px}
+#toast {position:fixed;bottom:20px;right:20px;background:#192235;color:white;border-radius:10px;padding:12px 17px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+@media(max-width:900px) {
+ .app {grid-template-columns:1fr}
+ aside {border-right:0;border-bottom:1px solid var(--line);padding:10px;position:static}
+ .nav-label,.side-progress {display:none}
+ .nav-list {display:flex;overflow-x:auto;gap:5px}
+ .nav-btn {width:auto;white-space:nowrap;padding:9px 12px}
+ main {padding:22px 15px}
+ .grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px) {
+ header {padding:0 13px}
+ .header-right .hide-mobile {display:none}
+ .grid,.two-col {grid-template-columns:1fr}
+ .card {padding:17px}
+ .lesson-block {padding:17px}
+}
 </style>
 </head>
 <body>
-<div class="app">
-<header class="top">
-  <div class="brand"><div class="logo">∑</div><div><h1>Algebra 2 CBE</h1><p>Study hub · Practice · Progress</p></div></div>
-  <div class="actions"><button class="btn" id="export">Export backup</button><button class="btn" id="reset">Reset progress</button></div>
+<header>
+  <div class="brand"><span class="brand-icon">x²</span> Algebra 2 Academy</div>
+  <div class="header-right"><span id="header-progress">0% complete</span><span class="hide-mobile">|</span><span id="header-streak">0 day streak</span></div>
 </header>
-<div class="layout">
-<aside class="sidebar">
-  <div class="side-label">STUDY WORKSPACE</div>
-  <nav class="nav" id="nav">
-    <button class="active" data-page="dashboard">⌂ Dashboard</button>
-    <button data-page="course">▤ Lessons</button>
-    <button data-page="practice">✎ Topic practice</button>
-    <button data-page="exam">◷ Mock exam</button>
-    <button data-page="formulas">∑ Formula sheet</button>
-    <button data-page="notes">▧ My notes</button>
-  </nav>
-  <p class="muted">Progress saves in this browser. Export a backup before switching devices.</p>
+<div class="app">
+<aside>
+  <div class="nav-label">YOUR LEARNING</div>
+  <div class="nav-list">
+    <button class="nav-btn active" data-page="home"><span class="nav-icon">⌂</span> Dashboard</button>
+    <button class="nav-btn" data-page="course"><span class="nav-icon">▤</span> Course lessons</button>
+    <button class="nav-btn" data-page="practice"><span class="nav-icon">✎</span> Practice</button>
+    <button class="nav-btn" data-page="exam"><span class="nav-icon">✓</span> Mock exam</button>
+    <button class="nav-btn" data-page="formulas"><span class="nav-icon">π</span> Formula library</button>
+    <button class="nav-btn" data-page="notes"><span class="nav-icon">▧</span> My notes</button>
+    <button class="nav-btn" data-page="progress"><span class="nav-icon">↗</span> My progress</button>
+  </div>
+  <div class="side-progress">
+    <div class="row"><strong>Course progress</strong><span id="side-percent">0%</span></div>
+    <div class="progress" style="margin:10px 0"><div id="side-bar" style="width:0%"></div></div>
+    <div class="muted" id="side-lessons">0 lessons completed</div>
+  </div>
 </aside>
-<main class="main">
-<section class="page active" id="page-dashboard">
-  <div class="hero">
-    <div class="eyebrow">Your independent study workspace</div>
-    <h2>Master Algebra 2 one concept at a time.</h2>
-    <p>Learn the method, follow worked examples, practise without notes, and use your results to choose what to review next.</p>
-    <div class="hero-buttons"><button class="btn primary" id="continue">Continue learning →</button><button class="btn" data-go="practice">Start practice</button><button class="btn" data-go="exam">Take mock exam</button></div>
-  </div>
-  <div class="stats">
-    <div class="stat"><div class="muted">Course progress</div><div class="big" id="progressStat">0%</div><div class="muted">Lessons completed</div></div>
-    <div class="stat"><div class="muted">Study streak</div><div class="big"><span id="streakStat">0</span> days</div><div class="muted">Consecutive study days</div></div>
-    <div class="stat"><div class="muted">Quiz average</div><div class="big" id="averageStat">—</div><div class="muted" id="quizCount">No quizzes yet</div></div>
-    <div class="stat"><div class="muted">Activities</div><div class="big" id="activitiesStat">0</div><div class="muted">Lessons and quizzes logged</div></div>
-  </div>
-  <div class="panel">
-    <div class="progress-label"><strong>Overall course completion</strong><span id="progressText">0%</span></div>
-    <div class="progress"><div class="fill" id="progressBar"></div></div>
-    <div class="progress-label"><span id="remaining">Start your first lesson.</span><span id="completedCount">0 completed</span></div>
-  </div>
-  <div class="heading"><div><h3>Course modules</h3><p>Choose a unit to study.</p></div><button class="btn" data-go="course">All lessons →</button></div>
-  <div class="grid" id="moduleGrid"></div>
-  <div class="heading"><div><h3>Study plan and activity</h3><p>Use your consistency tracker to keep a routine.</p></div></div>
-  <div class="cols">
-    <div class="panel"><h3>Recommended next steps</h3><div id="recommendations"></div></div>
-    <div class="panel"><div class="streakbox"><div class="eyebrow">Weekly activity</div><div class="streaknum"><span id="streakBig">0</span> days</div><div class="muted" id="streakMessage">Complete a lesson or quiz today.</div><div class="week" id="weekGrid"></div></div><h3>Recent activity</h3><div id="activityList"></div></div>
-  </div>
-</section>
-
-<section class="page" id="page-course">
-  <div class="heading"><div><h3>Course lessons</h3><p>Detailed notes, worked examples, and learning checks.</p></div><span class="tag" id="lessonCounter">Algebra 2</span></div>
-  <input class="search" id="lessonSearch" placeholder="Search lesson titles and topics...">
-  <div class="lesson-list" id="lessonList" style="margin-top:12px"></div>
-</section>
-
-<section class="page" id="page-lesson">
-  <div class="heading"><div><h3 id="lessonUnit">Lesson</h3><p>Understand the method before moving on.</p></div><button class="btn" data-go="course">← Lessons</button></div>
-  <div class="lesson-layout"><div class="panel lesson-content" id="lessonContent"></div><aside class="panel"><h3>Mastery checklist</h3><p class="muted">Try to complete these without looking back at the lesson.</p><label class="checkrow"><input type="checkbox"> I can explain the rule.</label><label class="checkrow"><input type="checkbox"> I can solve a new example.</label><label class="checkrow"><input type="checkbox"> I can check my answer.</label><button class="btn primary" id="markComplete" style="width:100%">Mark complete ✓</button><p class="muted">Completing a lesson records progress; it does not certify exam mastery.</p></aside></div>
-</section>
-
-<section class="page" id="page-practice">
-  <div class="heading"><div><h3>Topic practice</h3><p>Choose a topic and answer practice questions with feedback.</p></div></div>
-  <div class="panel">
-    <label for="topicSelect">Practice topic</label>
-    <select id="topicSelect" style="margin:8px 0 15px"></select>
-    <div id="practiceStart"><p class="muted">Questions are selected from the site's practice bank. Results are saved to your dashboard.</p><button class="btn primary" id="startPractice">Start 10-question quiz →</button></div>
-    <div id="practiceArea" style="display:none"></div>
-  </div>
-  <div class="panel"><h3>Topics to review</h3><p class="muted">Based on missed questions in your recorded quizzes.</p><div id="weakTopics"></div></div>
-</section>
-
-<section class="page" id="page-exam">
-  <div class="heading"><div><h3>Cumulative mock exam</h3><p>Timed, mixed-topic practice for independent review.</p></div></div>
-  <div class="panel" id="examIntro"><h3>Before you begin</h3><p>This practice exam contains 30 multiple-choice questions. Suggested time: 60 minutes. Work without notes for a realistic self-check. It is not an official FISD examination and does not reproduce a secure test.</p><ul><li>Use scratch paper for calculations.</li><li>Choose one answer for every question.</li><li>Review explanations and weak topics after finishing.</li></ul><button class="btn primary" id="startExam">Start mock exam →</button></div>
-  <div class="panel" id="examArea" style="display:none"></div>
-</section>
-
-<section class="page" id="page-formulas">
-  <div class="heading"><div><h3>Formula sheet</h3><p>Search common Algebra 2 formulas and rules.</p></div></div>
-  <input class="search" id="formulaSearch" placeholder="Search formulas...">
-  <div class="formula-grid" id="formulaGrid" style="margin-top:12px"></div>
-</section>
-
-<section class="page" id="page-notes">
-  <div class="heading"><div><h3>My notes</h3><p>Record formulas, questions, and concepts to revisit.</p></div></div>
-  <div class="panel"><textarea id="notes" rows="16" placeholder="Write your notes here..."></textarea><div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:12px"><span class="muted">Saved locally in this browser.</span><button class="btn primary" id="saveNotes">Save notes</button></div></div>
-</section>
-<div class="footer">Algebra 2 CBE Study Hub · Independent study resource · Confirm the official exam objectives with your school and exam provider.</div>
-</main>
+<main id="main"></main>
 </div>
-</div>
-<div class="toast" id="toast"></div>
+<div id="toast"></div>
 
 <script>
-const units=[
-{ id:"functions",icon:"ƒ",title:"Functions, Equations & Inequalities",desc:"Function notation, domain, range, composition, inverses, and transformations.",lessons:[
-["Function notation and evaluating functions","A function assigns exactly one output to each allowed input. To evaluate f(a), substitute a everywhere x appears and simplify.","If f(x)=2x²−3x+1, then f(2)=2(4)−6+1=3.","f(a) means the output when the input is a. It does not mean f multiplied by a."],
-["Domain and range","The domain is the set of allowed inputs; the range is the set of outputs. Check denominators, even roots, and logarithms when finding restrictions.","For f(x)=1/(x−4), the domain excludes x=4 because the denominator cannot be zero.","For real square roots, the radicand must be nonnegative. For real logarithms, the argument must be positive."],
-["Composite functions","A composite function places one function inside another: (f∘g)(x)=f(g(x)). Evaluate the inside function first.","If f(x)=x+3 and g(x)=2x, then f(g(x))=2x+3.","Order matters: f(g(x)) and g(f(x)) are not usually equal."],
-["Inverse functions","An inverse reverses a function's input-output relationship. Write y=f(x), switch x and y, and solve for y. The original function must be one-to-one on its domain.","For f(x)=2x+6, switching gives x=2y+6, so f⁻¹(x)=(x−6)/2.","Check inverse work by composing the functions and obtaining x."],
-["Linear and absolute-value inequalities","Solve inequalities with inverse operations. Reverse the inequality sign when multiplying or dividing by a negative number. Absolute value represents distance from zero.","−2x>8 gives x<−4. The sign reverses when dividing by −2.","For |x|<a, write −a<x<a when a>0. For |x|>a, split into two outside intervals."],
-["Graph transformations","In y=a f(x−h)+k, h shifts the graph horizontally, k shifts it vertically, and a controls vertical stretch and reflection.","y=2(x−3)²+1 is shifted right 3, up 1, and stretched vertically by 2.","The sign inside parentheses works opposite to the sign outside: x−3 shifts right 3."]
-]},
-{ id:"quadratics",icon:"x²",title:"Quadratic Functions",desc:"Parabolas, roots, vertex form, discriminants, and applications.",lessons:[
-["Graphing quadratic functions","A quadratic function has degree two and graphs as a parabola. In y=a(x−h)²+k, the vertex is (h,k), and a determines the opening direction.","For y=2(x−1)²−3, the vertex is (1,−3), and the graph opens upward.","If a is positive the parabola opens up; if negative it opens down."],
-["Factoring quadratic expressions","To factor x²+bx+c, find two numbers whose product is c and sum is b. For ax²+bx+c, look for factors that multiply to ac and add to b.","x²+5x+6=(x+2)(x+3), because 2·3=6 and 2+3=5.","Always multiply the factors back out to verify."],
-["Solving quadratic equations","Set a quadratic equal to zero, then factor and use the zero-product property. If factoring is difficult, complete the square or use the quadratic formula.","x²−9=0 gives (x−3)(x+3)=0, so x=3 or x=−3.","The zero-product property applies when a product equals zero."],
-["Completing the square","To complete the square for x²+bx, add (b/2)². If solving an equation, add the same amount to both sides.","x²+6x+5=0 becomes x²+6x=−5, then (x+3)²=4. Thus x=−1 or −5.","When the coefficient of x² is not 1, divide first or factor that coefficient out."],
-["Quadratic formula and discriminant","For ax²+bx+c=0, x=(-b±√(b²−4ac))/(2a). The discriminant D=b²−4ac indicates the root types.","For x²+2x+5=0, D=4−20=−16, so there are two nonreal complex conjugate roots.","Use parentheses carefully, especially for negative b and the denominator 2a."],
-["Quadratic applications","Quadratics model areas, projectile motion, and maximum or minimum values. Identify what x represents and interpret only contextually valid solutions.","For a height model h(t)=−16t²+32t+5, the vertex time is t=−32/[2(−16)]=1 second.","A mathematically valid solution may be invalid in context, such as negative time."]
-]},
-{ id:"polynomials",icon:"P",title:"Polynomials & Complex Numbers",desc:"Polynomial operations, division, zeros, factors, and imaginary numbers.",lessons:[
-["Polynomial operations","Combine like terms and distribute when adding, subtracting, or multiplying polynomials. The degree is the greatest exponent with a nonzero coefficient.","(x+2)(x+3)=x²+5x+6.","Multiplying polynomials requires each term to multiply every term in the other factor."],
-["Polynomial division","Use polynomial long division or synthetic division for suitable linear divisors. The remainder theorem states that the remainder when P(x) is divided by x−a equals P(a).","If P(x)=x²+1 is divided by x−2, the remainder is P(2)=5.","Synthetic division is most straightforward when the divisor has the form x−a."],
-["Zeros and factors","A zero is an input making P(x)=0. If P(a)=0, then x−a is a factor. Factor polynomials and solve each factor equal to zero.","P(x)=x²−4=(x−2)(x+2), so its zeros are 2 and −2.","A degree-n polynomial has n complex roots when multiplicity is counted."],
-["Remainder and factor theorems","Evaluate P(a) to find the remainder for division by x−a. If the remainder is zero, x−a is a factor.","For P(x)=x²−4, P(2)=0, so x−2 is a factor.","A remainder of zero is a quick way to test a possible factor."],
-["Complex number operations","The imaginary unit i satisfies i²=−1. Add real and imaginary parts separately; multiply using distribution and replace i² with −1.","(3+2i)+(1−5i)=4−3i. Also, (2+i)(2−i)=5.","Complex conjugates multiply to a real number when the real and imaginary parts match."],
-["Powers of i and complex roots","Powers of i repeat every four powers: i, −1, −i, 1. Quadratics with negative discriminants have nonreal roots.","i⁷=i³=−i because 7 divided by 4 has remainder 3.","For real-coefficient polynomials, nonreal complex roots occur in conjugate pairs."]
-]},
-{ id:"rational",icon:"÷",title:"Rational Expressions & Equations",desc:"Restrictions, rational operations, equations, and variation.",lessons:[
-["Simplifying rational expressions","Factor numerator and denominator, then cancel common factors. State values that make the original denominator zero.","(x²−9)/(x−3) simplifies to x+3, but x≠3.","Cancel factors, not individual terms separated by addition or subtraction."],
-["Multiplying and dividing rational expressions","Factor each expression, multiply numerators and denominators, and cancel common factors. Division means multiplying by the reciprocal.","(x/3)÷(x/6)=2 for x≠0.","Record restrictions from original denominators and ensure the divisor is not zero."],
-["Adding and subtracting rational expressions","Find a common denominator, rewrite each fraction, then combine the numerators. Do not add denominators directly.","1/x+1/2=(x+2)/(2x), with x≠0.","Factor denominators first when possible to find the least common denominator."],
-["Solving rational equations","Multiply both sides by the least common denominator, solve the resulting equation, and check all candidates in the original equation.","For 1/x=2, solving gives x=1/2, which is allowed because it is not zero.","Any candidate making an original denominator zero must be rejected."],
-["Direct, inverse, and joint variation","Direct variation has y=kx. Inverse variation has y=k/x. Joint variation may involve a product of multiple variables.","If y varies inversely with x and y=4 when x=3, then k=12 and y=12/x.","Use the supplied values to calculate k before applying the variation model."]
-]},
-{ id:"radicals",icon:"√",title:"Radicals, Exponents & Logarithms",desc:"Exponent rules, radical equations, exponential models, and logarithms.",lessons:[
-["Rules of exponents","When multiplying powers with the same base, add exponents. When dividing, subtract exponents. A power raised to a power multiplies exponents.","x³·x⁴=x⁷ and (x³)²=x⁶.","A negative exponent means reciprocal; it does not make the value negative."],
-["Rational exponents and radicals","For appropriate real values, x^(m/n)=ⁿ√(xᵐ). The denominator of the exponent represents the root and the numerator represents the power.","27^(2/3)=(∛27)²=9.","Even roots of negative real numbers are not real. Domain restrictions matter."],
-["Simplifying radicals","Factor out perfect squares or perfect nth powers from a radical. For real x, √(x²)=|x|.","√72=√(36·2)=6√2.","Do not simplify √(a+b) as √a+√b; radicals do not distribute over addition."],
-["Solving radical equations","Isolate the radical, raise both sides to the needed power, solve, then check candidates in the original equation.","√(x+1)=3 gives x+1=9, so x=8, which checks.","Squaring both sides can introduce extraneous solutions."],
-["Exponential functions","In f(x)=abˣ, a is the initial value and b is the growth or decay factor. Growth has b>1; decay has 0<b<1.","An initial amount of 200 growing 5% per period is modeled by f(t)=200(1.05)^t.","A 5% decrease uses a factor of 0.95, not 0.05."],
-["Logarithms and their properties","A logarithm gives the exponent needed to produce a number: log_b(x)=y means bʸ=x. Product, quotient, and power rules simplify logarithmic expressions.","log₂(8)=3 because 2³=8. log(ab)=log(a)+log(b) for valid arguments.","Logarithms require a positive argument and a valid base: b>0 and b≠1."],
-["Solving exponential and logarithmic equations","Rewrite both sides with a common base when possible. Otherwise, take logarithms and solve. Convert between logarithmic and exponential forms.","3ˣ=10 gives x=ln(10)/ln(3).","Check that all logarithm arguments remain positive."]
-]},
-{ id:"sequences",icon:"Σ",title:"Sequences, Series & Discrete Math",desc:"Arithmetic and geometric sequences, sums, counting, and probability.",lessons:[
-["Arithmetic sequences","An arithmetic sequence has a constant difference d. Its nth term is aₙ=a₁+(n−1)d.","For 4,7,10,13,..., d=3 and a₆=4+5(3)=19.","The formula uses n−1 because the first term has zero added differences."],
-["Geometric sequences","A geometric sequence has a constant ratio r. Its nth term is aₙ=a₁rⁿ⁻¹.","For 2,6,18,54,..., r=3 and a₅=2(3⁴)=162.","Find the ratio by dividing consecutive terms."],
-["Arithmetic and geometric series","A series is a sum of terms. Arithmetic finite sums use Sₙ=n(a₁+aₙ)/2. Geometric finite sums use Sₙ=a₁(1−rⁿ)/(1−r), r≠1.","The first five terms of 2,4,6,8,10 sum to 5(2+10)/2=30.","A sequence lists terms; a series adds them."],
-["Counting principles and probability","Use the multiplication principle for successive choices. For equally likely outcomes, probability is favorable outcomes divided by total outcomes.","Three shirts and four pairs of pants create 3·4=12 outfits.","Make sure outcomes are equally likely before using the simple probability fraction."]
-]},
-{ id:"statistics",icon:"%",title:"Statistics, Probability & Data",desc:"Counting methods, probability, distributions, and models.",lessons:[
-["Permutations and combinations","Permutations count arrangements where order matters: nPr=n!/(n−r)!. Combinations count selections where order does not matter: nCr=n!/[r!(n−r)!].","Choosing a president and vice president is an ordered selection; choosing two committee members is not.","Identify whether changing the order creates a different outcome."],
-["Probability rules","For mutually exclusive events, P(A or B)=P(A)+P(B). For independent events, P(A and B)=P(A)P(B). The complement is 1−P(A).","Two independent fair coin flips both being heads has probability 1/2·1/2=1/4.","Independence and mutual exclusivity are different ideas."],
-["Mean, median, spread, and distributions","Mean is the arithmetic average; median is the middle ordered value. Range and standard deviation describe spread. Outliers can strongly affect the mean.","For 2,3,3,4,18, the mean is 6 while the median is 3.","Describe a distribution using center, spread, shape, and unusual values."],
-["Correlation and regression","Correlation describes direction and strength of a linear relationship. Regression fits a model to estimate values. Correlation alone does not establish causation.","A positive correlation means larger values of one variable tend to accompany larger values of the other.","A regression prediction outside the observed data range may be unreliable."]
-]},
-{ id:"review",icon:"✓",title:"Cumulative Review & Exam Readiness",desc:"Mixed problems, error analysis, and readiness checks.",lessons:[
-["Mixed equation review","Choose a solution method based on the equation: inverse operations, factoring, completing the square, quadratic formula, or logarithms.","For x²−5x+6=0, factor to (x−2)(x−3)=0, giving x=2 or 3.","Substitute answers into the original equation whenever practical."],
-["Functions and graph review","Connect equations, tables, graphs, domain, range, intercepts, transformations, and function behavior.","The y-intercept occurs where x=0; the x-intercept occurs where y=0.","Read axes and scales carefully before interpreting a graph."],
-["Exam readiness and error analysis","Use mixed practice, keep an error log, redo missed problems without notes, and explain why each step works.","After missing a problem, identify whether the error was a formula, algebra, sign, or interpretation mistake.","This site's completion percentage measures activity, not verified mastery of every exam objective."]
-]}
+"use strict";
+
+/*
+  Algebra 2 CBE Academy
+  All progress is stored locally in this browser.
+  This is an independent study resource, not an official exam blueprint.
+*/
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const today = () => new Date().toLocaleDateString("en-CA");
+const KEY = "algebra2cbe_progress_v2";
+
+const units = [
+{
+ id:"linear",icon:"01",title:"Equations, Inequalities & Linear Functions",level:"Foundations",
+ intro:"Build the equation-solving and graphing skills used throughout Algebra 2.",
+ lessons:[
+ {title:"Solving Equations Step by Step",time:"20 min",objectives:["Solve one-variable linear equations.","Use inverse operations.","Check solutions by substitution."],
+ prereq:"A variable is a letter representing a number. An expression such as 3x + 2 combines numbers and variables. An equation states that two expressions are equal.",
+ sections:[
+ {h:"1. What does solving mean?",p:"Solving an equation means finding every value of the variable that makes the statement true. Think of an equation as a balanced scale: whatever operation you perform on one side, you must perform on the other side to preserve equality.",math:"x + 5 = 12",p2:"The equation says that a number plus 5 equals 12. Subtracting 5 from both sides isolates x."},
+ {h:"2. Inverse operations",p:"Inverse operations undo one another. Addition and subtraction are inverses; multiplication and division are inverses. Exponents and roots are also related inverse operations, although they require additional care.",bullets:["Undo addition by subtracting the same amount.","Undo subtraction by adding the same amount.","Undo multiplication by dividing by the same nonzero number.","Undo division by multiplying by the same number." ]},
+ {h:"3. Worked example",p:"Solve 3x − 7 = 14. We want x by itself, so reverse the operations surrounding x.",steps:[["Add 7 to both sides","3x − 7 + 7 = 14 + 7, so 3x = 21. Adding 7 cancels the −7."],["Divide both sides by 3","3x ÷ 3 = 21 ÷ 3, so x = 7. Division cancels multiplication by 3."],["Check the answer","Substitute 7 into the original equation: 3(7) − 7 = 21 − 7 = 14. Both sides match, so x = 7 is correct."]]},
+ {h:"4. Variables on both sides",p:"When the variable appears on both sides, gather variable terms on one side and constants on the other.",steps:[["Start","5x + 2 = 2x + 14"],["Subtract 2x from both sides","3x + 2 = 14"],["Subtract 2","3x = 12"],["Divide by 3","x = 4. Check: 5(4)+2 = 22 and 2(4)+14 = 22."]]},
+ {h:"5. Common mistakes",bullets:["Changing a sign mentally without performing the same operation on both sides.","Dividing only one term instead of the entire side.","Forgetting to distribute a number outside parentheses.","Not checking the answer in the original equation."]},
+ {h:"6. Why this matters",p:"These same steps appear when solving formulas, finding intercepts, simplifying rational equations, and solving systems. Reliable equation-solving makes more advanced topics easier."}
+ ],
+ examples:[{q:"Solve 2x + 9 = 19.",a:"x = 5",steps:["Subtract 9: 2x = 10.","Divide by 2: x = 5.","Check: 2(5)+9 = 19."]}],
+ questions:[
+ {q:"Solve 4x − 3 = 17.",options:["x = 4","x = 5","x = 6","x = 20"],correct:1,why:"Add 3 to get 4x = 20. Divide by 4 to get x = 5."},
+ {q:"Solve 2x + 8 = x + 13.",options:["x = 3","x = 5","x = 8","x = 21"],correct:1,why:"Subtract x from both sides: x + 8 = 13. Subtract 8, giving x = 5."},
+ {q:"Which operation undoes multiplication by 7?",options:["Add 7","Subtract 7","Divide by 7","Square the number"],correct:2,why:"Dividing by 7 undoes multiplication by 7."}
+ ]},
+ {title:"Inequalities and Interval Reasoning",time:"20 min",objectives:["Solve linear inequalities.","Interpret inequality symbols.","Understand when to reverse the inequality sign."],
+ prereq:"An inequality compares values rather than saying they are exactly equal. The symbols < and > mean less than and greater than; ≤ and ≥ include equality.",
+ sections:[
+ {h:"1. Reading inequalities",p:"The statement x < 4 means every number smaller than 4 is a solution. The number 4 itself is not included. The statement x ≤ 4 includes 4 as well as all smaller numbers.",math:"x < 4     means     all numbers below 4"},
+ {h:"2. Solving inequalities",p:"You can add or subtract the same number on both sides, and multiply or divide by a positive number, without changing the direction of the inequality.",steps:[["Start","2x + 3 < 11"],["Subtract 3","2x < 8"],["Divide by positive 2","x < 4"]]},
+ {h:"3. The important sign reversal",p:"If you multiply or divide both sides by a negative number, reverse the inequality sign. This is necessary because negative numbers reverse order on the number line: −2 is greater than −5.",steps:[["Start","−3x < 12"],["Divide by −3","x > −4"],["Check","Try x = 0. The original inequality becomes 0 < 12, which is true."]]},
+ {h:"4. Graphing solutions",p:"Use an open circle when the endpoint is excluded (< or >). Use a filled circle when it is included (≤ or ≥). Shade toward the values that satisfy the inequality.",bullets:["x < 3: open circle at 3; shade left.","x ≥ −2: filled circle at −2; shade right."]},
+ {h:"5. Common mistakes",bullets:["Forgetting to reverse the sign after dividing by a negative number.","Using a filled endpoint for a strict inequality.","Assuming an inequality has only one solution; it often has infinitely many."]}
+ ],
+ questions:[
+ {q:"Solve 3x − 4 ≥ 11.",options:["x ≥ 5","x ≤ 5","x ≥ 7/3","x ≤ 7/3"],correct:0,why:"Add 4: 3x ≥ 15. Divide by positive 3: x ≥ 5."},
+ {q:"Solve −2x > 10.",options:["x > −5","x < −5","x > 5","x < 5"],correct:1,why:"Divide by −2 and reverse the sign. Therefore x < −5."},
+ {q:"Which endpoint is included in x ≤ 6?",options:["6 is not included","6 is included","Only numbers above 6","There are no solutions"],correct:1,why:"The symbol ≤ means less than or equal to, so 6 is included."}
+ ]},
+ {title:"Linear Functions and Slope",time:"25 min",objectives:["Find slope from two points.","Interpret slope and y-intercept.","Write a line in slope-intercept form."],
+ prereq:"A function assigns an output to an input. Coordinates are written (x, y), where x is horizontal and y is vertical.",
+ sections:[
+ {h:"1. What is slope?",p:"Slope measures how much y changes when x increases by one unit. It is often described as rise over run: vertical change divided by horizontal change.",math:"m = (y₂ − y₁) / (x₂ − x₁)",p2:"A positive slope rises from left to right. A negative slope falls. A horizontal line has slope 0. A vertical line has undefined slope."},
+ {h:"2. Example using two points",p:"Find the slope through (2, 3) and (6, 11). Label the first point (x₁,y₁) and the second (x₂,y₂).",steps:[["Find vertical change","11 − 3 = 8."],["Find horizontal change","6 − 2 = 4."],["Divide","m = 8/4 = 2. The line rises 2 units for every 1 unit to the right."]]},
+ {h:"3. Slope-intercept form",p:"The equation y = mx + b describes a line. The number m is the slope, and b is the y-intercept, where the line crosses the vertical axis.",math:"y = mx + b",p2:"For y = 3x − 4, the slope is 3 and the y-intercept is −4, or the point (0, −4)."},
+ {h:"4. Writing an equation",p:"Suppose a line has slope 2 and y-intercept 5. Substitute m = 2 and b = 5 into y = mx + b to get y = 2x + 5.",steps:[["Identify the slope","m = 2."],["Identify the intercept","b = 5."],["Substitute","y = 2x + 5."]]},
+ {h:"5. Common mistakes",bullets:["Subtracting the coordinates in different orders in the numerator and denominator.","Confusing the y-intercept with the x-intercept.","Assuming a larger slope means the line starts higher; slope and intercept describe different things."]}
+ ],
+ questions:[
+ {q:"Find the slope through (1, 2) and (3, 8).",options:["2","3","4","6"],correct:1,why:"Slope = (8−2)/(3−1) = 6/2 = 3."},
+ {q:"In y = −4x + 7, what is the y-intercept?",options:["−4","4","7","−7"],correct:2,why:"In y = mx + b, b is the y-intercept. Here b = 7."},
+ {q:"A line has slope 2 and y-intercept −3. Which equation describes it?",options:["y = −3x + 2","y = 2x − 3","y = 2x + 3","y = −2x − 3"],correct:1,why:"Substitute m = 2 and b = −3 into y = mx + b."}
+ ]}
+ ]
+},
+{
+ id:"quadratics",icon:"02",title:"Quadratic Equations & Functions",level:"Core",
+ intro:"Understand parabolas, multiple solution methods, and quadratic applications.",
+ lessons:[
+ {title:"Understanding Quadratic Equations",time:"25 min",objectives:["Recognize quadratic equations.","Identify a, b, and c.","Explain why quadratic graphs are parabolas."],
+ prereq:"A linear equation has x to the first power, such as y = 2x + 3. A quadratic has x² as its highest power after simplifying.",
+ sections:[
+ {h:"1. Definition and standard form",p:"A quadratic equation has degree 2. Its standard form is ax² + bx + c = 0, where a, b, and c are numbers and a cannot be zero. The degree is the largest exponent of the variable after simplifying.",math:"ax² + bx + c = 0",p2:"The coefficient a multiplies x², b multiplies x, and c is the constant term. Signs are part of coefficients."},
+ {h:"2. Identify coefficients",p:"For 3x² − 5x + 2 = 0, compare each term with the standard form.",steps:[["Quadratic term","3x² means a = 3."],["Linear term","−5x means b = −5, including the negative sign."],["Constant term","The constant is 2, so c = 2."]]},
+ {h:"3. Missing terms",p:"For x² − 16 = 0, there is no x term. Rewrite it as x² + 0x − 16 = 0. Therefore a = 1, b = 0, and c = −16. A missing term has a coefficient of zero.",p2:"For 2x² + 8x = 0, the constant term is missing, so c = 0."},
+ {h:"4. Why a parabola?",p:"The graph of y = ax² + bx + c is a parabola. For y = x², outputs at x = −2 and x = 2 are both 4, and outputs at x = −1 and x = 1 are both 1. This symmetry creates a U-shaped graph.",math:"y = x²:  4, 1, 0, 1, 4",p2:"If a is positive, the parabola opens upward. If a is negative, it opens downward. The vertex is its lowest or highest point."},
+ {h:"5. Common mistakes",bullets:["Forgetting the negative sign in b.","Calling an expression an equation when it has no equals sign.","Assuming a missing x term makes an equation invalid.","Not simplifying before identifying the degree."]},
+ {h:"6. Where quadratics appear",p:"Quadratic models describe many situations involving curved paths, area, and maximum or minimum values. In applications, the vertex may represent the maximum height of a projectile or the greatest possible area."}
+ ],
+ examples:[{q:"Identify a, b, and c in 2x² + 6x − 8 = 0.",a:"a = 2, b = 6, c = −8",steps:["The coefficient of x² is 2.","The coefficient of x is 6.","The constant term is −8."]}],
+ questions:[
+ {q:"For 4x² − 9x + 2 = 0, what is b?",options:["9","−9","4","2"],correct:1,why:"The coefficient of x is −9. Keep the sign."},
+ {q:"Which equation is quadratic?",options:["3x + 1 = 0","x² − 4 = 0","x³ + 1 = 0","5x = 10"],correct:1,why:"The highest power of x is 2."},
+ {q:"For y = −3x² + 4x + 1, which way does the parabola open?",options:["Upward","Downward","It is a straight line","Cannot be determined"],correct:1,why:"The coefficient of x² is negative, so the parabola opens downward."}
+ ]},
+ {title:"Factoring Quadratics",time:"30 min",objectives:["Factor simple quadratic expressions.","Use the zero-product property.","Solve quadratics by factoring."],
+ prereq:"Factoring reverses expansion. For example, x(x + 4) expands to x² + 4x. Factoring writes an expression as a product.",
+ sections:[
+ {h:"1. What factoring does",p:"Factoring rewrites a sum or difference as a multiplication expression. For x² + 5x + 6, look for two numbers whose product is 6 and whose sum is 5. Those numbers are 2 and 3.",math:"x² + 5x + 6 = (x + 2)(x + 3)",p2:"You can verify the result by expanding: x² + 3x + 2x + 6 = x² + 5x + 6."},
+ {h:"2. The zero-product property",p:"If two factors multiply to zero, at least one factor must be zero. This lets us turn one quadratic equation into two simpler equations.",math:"AB = 0  ⇒  A = 0 or B = 0",p2:"This rule works because a nonzero number multiplied by another nonzero number cannot produce zero."},
+ {h:"3. Worked example",p:"Solve x² + 5x + 6 = 0.",steps:[["Factor","(x + 2)(x + 3) = 0."],["Set the first factor to zero","x + 2 = 0, so x = −2."],["Set the second factor to zero","x + 3 = 0, so x = −3."],["State both solutions","x = −2 or x = −3."]]},
+ {h:"4. Factoring when a is not 1",p:"For 2x² + 7x + 3, one possible factorization is (2x + 1)(x + 3). Check the outer and inner products: 6x and x combine to 7x, while the first and last products give 2x² and 3.",math:"2x² + 7x + 3 = (2x + 1)(x + 3)",p2:"Set each factor equal to zero to solve: 2x + 1 = 0 gives x = −1/2; x + 3 = 0 gives x = −3."},
+ {h:"5. Common mistakes",bullets:["Finding numbers that add correctly but do not multiply to the constant.","Forgetting that the factor equations are separated by OR, not AND.","Only reporting one solution when both factors can equal zero.","Changing signs incorrectly when solving each factor."]}
+ ],
+ questions:[
+ {q:"Factor x² + 7x + 12.",options:["(x + 3)(x + 4)","(x + 2)(x + 6)","(x − 3)(x − 4)","(x + 1)(x + 12)"],correct:0,why:"3 and 4 multiply to 12 and add to 7."},
+ {q:"Solve (x − 5)(x + 2) = 0.",options:["x = 5 only","x = −2 only","x = 5 or x = −2","x = 3 or x = −3"],correct:2,why:"Set each factor equal to zero: x−5=0 gives 5; x+2=0 gives −2."},
+ {q:"Which is the factorization of x² − 9?",options:["(x − 9)(x + 1)","(x − 3)(x + 3)","(x − 3)²","(x + 9)(x − 1)"],correct:1,why:"This is a difference of squares: x²−3² = (x−3)(x+3)."}
+ ]},
+ {title:"Completing the Square and Square Roots",time:"30 min",objectives:["Solve quadratics using square roots.","Complete the square.","Convert to vertex form."],
+ prereq:"A perfect-square expression such as (x + 3)² expands to x² + 6x + 9. Completing the square uses this pattern.",
+ sections:[
+ {h:"1. Solving by square roots",p:"If an equation has the form (x − h)² = k, take square roots of both sides. When k is positive, include both the positive and negative square roots.",math:"(x − h)² = k  ⇒  x − h = ±√k",p2:"The ± symbol is essential: both a positive number and its negative have the same square."},
+ {h:"2. Example",p:"Solve (x − 4)² = 25.",steps:[["Take square roots","x − 4 = ±5."],["Use the positive root","x − 4 = 5, so x = 9."],["Use the negative root","x − 4 = −5, so x = −1."],["Answer","x = 9 or x = −1."]]},
+ {h:"3. Completing the square",p:"To complete the square for x² + bx, take half of b and square it. Add that number to create a perfect-square trinomial. For x² + 6x, half of 6 is 3 and 3² = 9.",math:"x² + 6x + 9 = (x + 3)²",p2:"If you add a number to one side of an equation, you must add it to the other side too."},
+ {h:"4. Worked example",p:"Solve x² + 6x + 2 = 0 by completing the square.",steps:[["Move the constant","x² + 6x = −2."],["Add the square term to both sides","Half of 6 is 3; square it to get 9. So x² + 6x + 9 = 7."],["Factor the perfect square","(x + 3)² = 7."],["Take square roots","x + 3 = ±√7, so x = −3 ± √7."]]},
+ {h:"5. Vertex form",p:"Vertex form is y = a(x − h)² + k. Its vertex is (h, k). Notice the sign inside the parentheses is opposite the x-coordinate: (x − 4)² has h = 4.",math:"y = a(x − h)² + k"},
+ {h:"6. Common mistakes",bullets:["Forgetting ± when taking a square root.","Adding a number to only one side of an equation.","Using b² instead of (b/2)² when completing the square.","Reading the sign of h incorrectly in vertex form."]}
+ ],
+ questions:[
+ {q:"Solve (x + 2)² = 16.",options:["x = 2 only","x = −6 or x = 2","x = −2 or x = 4","x = 6 or x = −2"],correct:1,why:"x+2 = ±4, so x = 2 or x = −6."},
+ {q:"What number completes x² + 8x + __ as a perfect square?",options:["4","8","16","64"],correct:2,why:"Half of 8 is 4; 4² = 16."},
+ {q:"What is the vertex of y = (x − 5)² + 2?",options:["(−5, 2)","(5, 2)","(2, 5)","(5, −2)"],correct:1,why:"Compare with y = (x−h)²+k. The vertex is (h,k) = (5,2)."}
+ ]},
+ {title:"The Quadratic Formula and Discriminant",time:"30 min",objectives:["Use the quadratic formula.","Interpret the discriminant.","Determine the number of real solutions."],
+ prereq:"The standard form is ax² + bx + c = 0. The quadratic formula works for every quadratic equation with a ≠ 0.",
+ sections:[
+ {h:"1. The formula",p:"When factoring is difficult or does not work with integers, use the quadratic formula. Identify a, b, and c from standard form before substituting.",math:"x = (−b ± √(b² − 4ac)) / (2a)",p2:"The entire numerator is divided by 2a. Use parentheses carefully when substituting negative values."},
+ {h:"2. Worked example",p:"Solve x² − 5x + 6 = 0 using the formula.",steps:[["Identify coefficients","a = 1, b = −5, c = 6."],["Substitute","x = (−(−5) ± √((−5)² − 4(1)(6))) / 2."],["Simplify","x = (5 ± √(25 − 24))/2 = (5 ± 1)/2."],["Find both answers","x = 3 or x = 2."]]},
+ {h:"3. The discriminant",p:"The expression under the square root, b² − 4ac, is called the discriminant. Its sign tells you how many real solutions a quadratic has.",math:"D = b² − 4ac",bullets:["D > 0: two distinct real solutions.","D = 0: one repeated real solution.","D < 0: no real solutions (the roots are complex)."]},
+ {h:"4. Example of no real solutions",p:"For x² + 1 = 0, a = 1, b = 0, and c = 1. The discriminant is 0² − 4(1)(1) = −4. Since it is negative, the equation has no real solutions. Over complex numbers, the solutions are i and −i.",p2:"For many Algebra 2 questions, the key skill is identifying that a negative discriminant means there are no real roots."},
+ {h:"5. Common mistakes",bullets:["Using b instead of −b in the numerator.","Forgetting to square a negative b using parentheses.","Dividing only the square-root term by 2a.","Treating a negative discriminant as a real square root."]}
+ ],
+ questions:[
+ {q:"For x² − 6x + 5 = 0, what is b?",options:["6","−6","5","1"],correct:1,why:"The coefficient of x is −6."},
+ {q:"What does a discriminant of 0 mean?",options:["No real solutions","Two distinct real solutions","One repeated real solution","Infinite solutions"],correct:2,why:"A zero discriminant makes the ± square-root term zero, so both answers are the same."},
+ {q:"What is the discriminant of x² + 2x + 5 = 0?",options:["24","−16","16","−24"],correct:1,why:"D = 2² − 4(1)(5) = 4 − 20 = −16."}
+ ]}
+ ]
+},
+{
+ id:"polynomials",icon:"03",title:"Polynomial Expressions & Functions",level:"Core",
+ intro:"Work with polynomial terms, products, factoring, and polynomial graphs.",
+ lessons:[
+ {title:"Polynomial Vocabulary and Operations",time:"25 min",objectives:["Identify degree and leading coefficient.","Combine like terms.","Add and subtract polynomials."],
+ prereq:"Like terms have the same variable raised to the same power. For example, 3x² and −5x² are like terms, but x² and x are not.",
+ sections:[
+ {h:"1. What is a polynomial?",p:"A polynomial is a sum of terms with nonnegative integer exponents. Examples include 3x² − 2x + 7 and 4x⁴ + x. Expressions with variables in denominators or negative/fractional exponents are not polynomials in x.",math:"4x³ − 2x² + 7x − 1"},
+ {h:"2. Degree and leading coefficient",p:"The degree is the largest exponent with a nonzero coefficient. The leading coefficient is the coefficient of the highest-degree term when the polynomial is written in descending powers.",steps:[["Example","−5x⁴ + 2x² − 7"],["Degree","The largest exponent is 4."],["Leading coefficient","The coefficient of −5x⁴ is −5."]]},
+ {h:"3. Adding polynomials",p:"Combine like terms only. The expression (3x² + 2x + 1) + (x² − 5x + 4) becomes 4x² − 3x + 5. Add the coefficients of matching powers.",steps:[["Group x² terms","3x² + x² = 4x²."],["Group x terms","2x − 5x = −3x."],["Group constants","1 + 4 = 5."],["Final result","4x² − 3x + 5."]]},
+ {h:"4. Subtracting polynomials",p:"When subtracting a polynomial, distribute the negative sign to every term in the second expression before combining like terms.",math:"(3x² + 2x) − (x² − 4x) = 2x² + 6x",p2:"The subtraction changes −4x to +4x because −(−4x) = +4x."},
+ {h:"5. Common mistakes",bullets:["Combining unlike terms such as x² and x.","Forgetting to distribute a negative sign across every term.","Identifying the degree from the first term before arranging terms in descending powers."]}
+ ],
+ questions:[
+ {q:"What is the degree of 7x⁵ − 2x² + 9?",options:["2","3","5","9"],correct:2,why:"The highest exponent is 5."},
+ {q:"Simplify (2x² + 3x) + (4x² − x).",options:["6x² + 2x","6x² + 4x","2x² + 2x","6x⁴ + 2x"],correct:0,why:"2x² + 4x² = 6x², and 3x − x = 2x."},
+ {q:"What is the leading coefficient of −3x⁴ + 8x − 1?",options:["4","−3","8","−1"],correct:1,why:"The highest-degree term is −3x⁴, so the leading coefficient is −3."}
+ ]},
+ {title:"Multiplying and Factoring Polynomials",time:"30 min",objectives:["Multiply polynomials using distribution.","Recognize special products.","Factor out a greatest common factor."],
+ prereq:"The distributive property says a(b + c) = ab + ac. Multiplying polynomials uses this rule repeatedly.",
+ sections:[
+ {h:"1. Multiply a monomial by a polynomial",p:"Multiply the outside term by every term inside the parentheses.",math:"3x(x² + 2x − 4) = 3x³ + 6x² − 12x",p2:"For powers with the same base, xᵐ · xⁿ = xᵐ⁺ⁿ. Thus x · x² = x³."},
+ {h:"2. Multiply two binomials",p:"A binomial has two terms. Multiply each term in the first binomial by each term in the second, then combine like terms.",steps:[["Write the product","(x + 2)(x + 5)."],["Distribute x","x(x + 5) = x² + 5x."],["Distribute 2","2(x + 5) = 2x + 10."],["Combine","x² + 5x + 2x + 10 = x² + 7x + 10."]]},
+ {h:"3. Special products",p:"Three patterns are especially useful.",math:"(a + b)² = a² + 2ab + b²",math2:"(a − b)² = a² − 2ab + b²",math3:"(a + b)(a − b) = a² − b²",p2:"The square of a binomial includes the middle term 2ab. Do not simply square each term and omit it."},
+ {h:"4. Greatest common factor",p:"Before trying other factoring methods, check whether every term shares a factor. For 6x³ + 9x², both coefficients share 3 and both terms contain x².",steps:[["Find the common factor","The greatest common factor is 3x²."],["Divide each term","6x³ ÷ 3x² = 2x; 9x² ÷ 3x² = 3."],["Factor","6x³ + 9x² = 3x²(2x + 3)."]]},
+ {h:"5. Common mistakes",bullets:["Multiplying only the first terms in a pair of binomials.","Forgetting the middle term in a squared binomial.","Not checking for a common factor before factoring further.","Adding exponents when adding terms rather than multiplying powers."]}
+ ],
+ questions:[
+ {q:"Expand (x + 3)(x + 4).",options:["x² + 7x + 12","x² + 12x + 7","x² + 7","x² + 12"],correct:0,why:"Multiply to get x² + 4x + 3x + 12, then combine the middle terms."},
+ {q:"Factor 8x² + 12x.",options:["4x(2x + 3)","4x²(2 + 3)","2x(4x + 12)","8x(x + 12)"],correct:0,why:"The greatest common factor is 4x."},
+ {q:"Expand (x − 2)².",options:["x² + 4","x² − 4x + 4","x² − 2x + 4","x² + 4x + 4"],correct:1,why:"(x−2)(x−2) = x² − 2x − 2x + 4."}
+ ]}
+ ]
+},
+{
+ id:"rational",icon:"04",title:"Rational Expressions & Equations",level:"Core",
+ intro:"Simplify fractions with variables and solve rational equations while checking restrictions.",
+ lessons:[
+ {title:"Simplifying Rational Expressions",time:"25 min",objectives:["Factor numerator and denominator.","Cancel common factors.","Identify excluded values."],
+ prereq:"A rational expression is a ratio of polynomials. Just like numerical fractions, it can be simplified by canceling common factors—but a denominator can never equal zero.",
+ sections:[
+ {h:"1. What is a rational expression?",p:"A rational expression is a fraction whose numerator and denominator are polynomials.",math:"(x² − 9) / (x + 3)",p2:"The original denominator cannot be zero. Since x + 3 = 0 when x = −3, the original expression is undefined at x = −3."},
+ {h:"2. Factor before canceling",p:"The expression x² − 9 factors as (x − 3)(x + 3). This is a difference of squares: a² − b² = (a − b)(a + b).",steps:[["Rewrite the numerator","(x − 3)(x + 3) / (x + 3)."],["Cancel the common factor","The factor x + 3 cancels, leaving x − 3."],["Keep the restriction","The simplified expression equals x − 3 only for x ≠ −3."]]},
+ {h:"3. What can and cannot cancel?",p:"You can cancel common factors, not separate terms in a sum. For example, (x² + 3x)/x can be simplified because the numerator factors as x(x + 3). But x + 3 over x cannot be simplified by canceling the x in just one term.",math:"(x² + 3x)/x = x + 3,   x ≠ 0"},
+ {h:"4. Common mistakes",bullets:["Canceling terms instead of entire factors.","Forgetting values excluded by the original denominator.","Multiplying fractions by adding denominators.","Dividing by an expression without considering whether it could equal zero."]}
+ ],
+ questions:[
+ {q:"Simplify (x² − 16)/(x − 4), where x ≠ 4.",options:["x − 4","x + 4","x² + 4","x − 16"],correct:1,why:"Factor x²−16 = (x−4)(x+4), then cancel x−4."},
+ {q:"For 5/(x − 2), which value is excluded?",options:["x = 0","x = 2","x = 5","x = −2"],correct:1,why:"The denominator is zero when x−2 = 0, so x = 2 is excluded."},
+ {q:"Simplify (x² + 4x)/x for x ≠ 0.",options:["x + 4","x² + 4","x + 4x","x"],correct:0,why:"Factor the numerator as x(x+4), then cancel the common factor x."}
+ ]},
+ {title:"Solving Rational Equations",time:"30 min",objectives:["Clear denominators using a common denominator.","Solve the resulting equation.","Check for extraneous solutions."],
+ prereq:"A rational equation contains fractions with variables in denominators. Any value that makes an original denominator zero is forbidden.",
+ sections:[
+ {h:"1. Why clear denominators?",p:"Fractions can make equations difficult to solve. Multiplying every term by the least common denominator (LCD) removes the fractions, provided you respect the original restrictions.",math:"1/x + 1/2 = 1",p2:"Here x cannot equal zero. The LCD is 2x."},
+ {h:"2. Worked example",p:"Solve 1/x + 1/2 = 1.",steps:[["Find the restriction and LCD","x ≠ 0; the LCD is 2x."],["Multiply every term by 2x","2 + x = 2x."],["Solve","Subtract x: 2 = x."],["Check the original equation","1/2 + 1/2 = 1. The solution x = 2 is allowed."]]},
+ {h:"3. Extraneous solutions",p:"An extraneous solution is a value that appears while solving but does not satisfy the original equation or violates an original restriction. Always check proposed answers in the original equation.",steps:[["Example","(x − 1)/(x − 1) = 2."],["Restriction","x ≠ 1."],["Simplify","For every allowed x, the left side equals 1, so it cannot equal 2."],["Conclusion","There is no solution. The excluded value x = 1 cannot be used to rescue the equation."]]},
+ {h:"4. Common mistakes",bullets:["Multiplying only one fraction by the LCD.","Ignoring values that make an original denominator zero.","Accepting every algebraic result without checking it.","Losing a term when distributing the LCD."]}
+ ],
+ questions:[
+ {q:"Solve 1/x = 1/4.",options:["x = 0","x = 1/4","x = 4","x = −4"],correct:2,why:"Cross multiplication or multiplying both sides by 4x gives x = 4."},
+ {q:"Why must denominator restrictions be checked?",options:["To make the answer larger","A denominator cannot equal zero","To remove every variable","To change fractions to decimals"],correct:1,why:"Division by zero is undefined, so those values cannot be solutions."},
+ {q:"For 3/(x + 5), which value is not allowed?",options:["5","−5","0","3"],correct:1,why:"x + 5 = 0 when x = −5."}
+ ]}
+ ]
+},
+{
+ id:"radicals",icon:"05",title:"Radicals, Rational Exponents & Complex Numbers",level:"Core",
+ intro:"Simplify roots, use rational exponents, and understand imaginary numbers.",
+ lessons:[
+ {title:"Simplifying Radicals and Rational Exponents",time:"25 min",objectives:["Simplify square roots.","Use exponent rules.","Convert between radicals and rational exponents."],
+ prereq:"A square root asks which nonnegative number squares to a given nonnegative number. Since 5² = 25, √25 = 5.",
+ sections:[
+ {h:"1. Perfect squares",p:"A perfect square is the square of an integer, such as 1, 4, 9, 16, 25, or 36. To simplify a radical, look for a perfect-square factor inside the radical.",math:"√72 = √(36 · 2) = 6√2",p2:"The square root of a product equals the product of the square roots when the quantities are nonnegative."},
+ {h:"2. Simplifying step by step",p:"Simplify √50.",steps:[["Find a perfect-square factor","50 = 25 · 2."],["Separate the roots","√50 = √25 · √2."],["Evaluate the perfect square","√25 = 5, so √50 = 5√2."]]},
+ {h:"3. Rational exponents",p:"A fractional exponent represents a root. The denominator tells you which root to take; the numerator tells you which power to raise it to.",math:"x^(1/2) = √x",math2:"x^(1/3) = ∛x",math3:"x^(m/n) = ⁿ√(xᵐ)",p2:"For real-valued even roots, the expression under the root must be nonnegative."},
+ {h:"4. Exponent rules",bullets:["Product: xᵃ · xᵇ = xᵃ⁺ᵇ.","Quotient: xᵃ / xᵇ = xᵃ⁻ᵇ, when x ≠ 0.","Power of a power: (xᵃ)ᵇ = xᵃᵇ.","Zero exponent: x⁰ = 1 for x ≠ 0.","Negative exponent: x⁻ᵃ = 1/xᵃ for x ≠ 0."]},
+ {h:"5. Common mistakes",bullets:["Writing √(a+b) = √a + √b; this is generally false.","Confusing x^(1/3) with x^(1/2).","Forgetting that negative exponents indicate reciprocals, not negative values.","Ignoring restrictions for even roots and denominators."]}
+ ],
+ questions:[
+ {q:"Simplify √48.",options:["4√3","3√4","8√6","2√12"],correct:0,why:"48 = 16·3, so √48 = 4√3."},
+ {q:"Which expression equals x^(1/3)?",options:["x/3","√x","∛x","3x"],correct:2,why:"A denominator of 3 in the exponent means cube root."},
+ {q:"Simplify x³ · x⁴.",options:["x¹²","x⁷","2x⁷","x"],correct:1,why:"When multiplying powers with the same base, add exponents: 3+4=7."}
+ ]},
+ {title:"Complex Numbers",time:"25 min",objectives:["Define i.","Simplify powers of i.","Add and multiply complex numbers."],
+ prereq:"No real number squared equals −1. Algebra extends the number system by defining i as the square root of −1.",
+ sections:[
+ {h:"1. The imaginary unit",p:"The imaginary unit i is defined by i² = −1. This allows square roots of negative numbers to be expressed using complex numbers.",math:"i = √(−1),     i² = −1",p2:"For example, √(−9) = √9 · √(−1) = 3i."},
+ {h:"2. Standard form",p:"A complex number is written a + bi, where a is the real part and b is the coefficient of the imaginary part. Real numbers have b = 0; pure imaginary numbers have a = 0.",math:"a + bi"},
+ {h:"3. Powers of i",p:"Powers of i repeat in a cycle of four because i² = −1, i³ = −i, and i⁴ = 1.",math:"i, −1, −i, 1, i, −1, …",p2:"To simplify a large power, divide its exponent by 4 and use the remainder to find the position in the cycle."},
+ {h:"4. Operations",p:"Add real parts together and imaginary parts together. For multiplication, distribute and replace every i² with −1.",steps:[["Addition","(3 + 2i) + (4 − 5i) = 7 − 3i."],["Multiplication","(2 + i)(3 + i) = 6 + 2i + 3i + i² = 5 + 5i."]]},
+ {h:"5. Common mistakes",bullets:["Treating i² as positive 1.","Combining a real term with an imaginary term.","Forgetting to distribute every term when multiplying complex numbers."]}
+ ],
+ questions:[
+ {q:"What is i²?",options:["1","−1","i","−i"],correct:1,why:"By definition, i² = −1."},
+ {q:"Simplify √(−25).",options:["5","−5","5i","25i"],correct:2,why:"√(−25) = √25 · √(−1) = 5i."},
+ {q:"Simplify (2 + 3i) + (4 − i).",options:["6 + 2i","6 + 4i","2 + 2i","8 + 3i"],correct:0,why:"Add real parts: 2+4=6. Add imaginary parts: 3i−i=2i."}
+ ]}
+ ]
+},
+{
+ id:"exponential",icon:"06",title:"Exponential & Logarithmic Functions",level:"Core",
+ intro:"Model growth and decay, understand logarithms, and solve exponential equations.",
+ lessons:[
+ {title:"Exponential Growth and Decay",time:"25 min",objectives:["Recognize exponential models.","Calculate growth and decay.","Interpret initial values and rates."],
+ prereq:"A power such as 2³ means 2 multiplied by itself three times. In an exponential function, the variable appears in the exponent.",
+ sections:[
+ {h:"1. Exponential functions",p:"An exponential function commonly has the form y = a·bˣ. The initial value is a, and the base b controls growth or decay.",math:"y = a · bˣ",bullets:["If b > 1, the function grows as x increases.","If 0 < b < 1, the function decays as x increases.","The base must be positive for the usual real-valued exponential model."]},
+ {h:"2. Growth example",p:"A population starts at 100 and grows by 10% per year. Each year it becomes 110% of the previous amount, so the growth factor is 1 + 0.10 = 1.10.",math:"P(t) = 100(1.10)ᵗ",p2:"After 3 years, P(3) = 100(1.10)³ = 133.1. The model predicts about 133 individuals if the quantity represents a count."},
+ {h:"3. Decay example",p:"A machine loses 20% of its value each year. It retains 80% each year, so the factor is 1 − 0.20 = 0.80.",math:"V(t) = 500(0.80)ᵗ",p2:"After two years, V(2) = 500(0.8)² = 320. The amount is multiplied by 0.8 twice."},
+ {h:"4. Compound interest",p:"For interest compounded a fixed number of times per year, use A = P(1 + r/n)ⁿᵗ, where P is the starting amount, r is the annual interest rate as a decimal, n is the number of compounding periods per year, and t is time in years.",math:"A = P(1 + r/n)ⁿᵗ",p2:"Convert 5% to 0.05 before substituting. The exponent n·t counts the total number of compounding periods."},
+ {h:"5. Common mistakes",bullets:["Using 0.10 as the growth factor instead of 1.10 for 10% growth.","Using 1.20 for a 20% decay instead of 0.80.","Entering a percent as a whole number in a formula requiring a decimal.","Confusing the initial value with the growth factor."]}
+ ],
+ questions:[
+ {q:"A quantity starts at 200 and grows by 5%. What is its yearly multiplier?",options:["0.05","0.95","1.05","5"],correct:2,why:"Growth factor = 1 + 0.05 = 1.05."},
+ {q:"A $100 item loses 30% of its value. What is its new value?",options:["$30","$70","$130","$100"],correct:1,why:"It retains 70%, so 100 × 0.70 = $70."},
+ {q:"In y = 7(3)ˣ, what is the initial value?",options:["3","7","10","x"],correct:1,why:"At x = 0, y = 7·3⁰ = 7."}
+ ]},
+ {title:"Logarithms and Their Properties",time:"30 min",objectives:["Convert between exponential and logarithmic form.","Evaluate simple logarithms.","Use log rules to expand and condense expressions."],
+ prereq:"A logarithm answers the question: what exponent is needed? Since 2³ = 8, log₂(8) = 3.",
+ sections:[
+ {h:"1. What is a logarithm?",p:"A logarithm is the inverse of exponentiation. The expression log_b(x) = y means that b raised to y equals x. The base b must be positive and not equal to 1, and x must be positive for real logarithms.",math:"log_b(x) = y  ⇔  bʸ = x"},
+ {h:"2. Convert forms",p:"The equation 10² = 100 becomes log₁₀(100) = 2. Both statements describe the same relationship.",steps:[["Start with exponential form","3⁴ = 81."],["Identify the base","The base is 3."],["Rewrite in logarithmic form","log₃(81) = 4."]]},
+ {h:"3. Evaluate simple logs",p:"To find log₂(32), ask what power of 2 equals 32. Since 2⁵ = 32, the logarithm equals 5.",math:"log₂(32) = 5",p2:"The common logarithm uses base 10: log(1000) = 3. The natural logarithm uses base e: ln(e³) = 3."},
+ {h:"4. Logarithm properties",p:"For positive x and y, these properties allow logarithmic expressions to be combined or expanded.",bullets:["Product: log_b(xy) = log_b(x) + log_b(y).","Quotient: log_b(x/y) = log_b(x) − log_b(y).","Power: log_b(xᵖ) = p log_b(x)."],p2:"The product rule changes multiplication into addition. The quotient rule changes division into subtraction. The power rule moves the exponent to the front."},
+ {h:"5. Solving a simple exponential equation",p:"Solve 2ˣ = 16. Because 16 = 2⁴, the exponents must match, giving x = 4. If both sides cannot easily be written with the same base, logarithms can be used.",steps:[["Same-base approach","2ˣ = 16 = 2⁴."],["Match exponents","x = 4."]]},
+ {h:"6. Common mistakes",bullets:["Reversing the base and the argument in a logarithm.","Using log rules on sums, such as claiming log(x+y)=log(x)+log(y). That rule is false.","Taking a logarithm of a nonpositive real number.","Forgetting that a logarithm gives an exponent."]}
+ ],
+ questions:[
+ {q:"Rewrite 5³ = 125 as a logarithm.",options:["log₅(125) = 3","log₃(125) = 5","log₁₂₅(5) = 3","log₅(3) = 125"],correct:0,why:"The base is 5, the result is 125, and the exponent is 3."},
+ {q:"Evaluate log₂(8).",options:["2","3","4","8"],correct:1,why:"2³ = 8, so log₂(8) = 3."},
+ {q:"Expand log₃(9x).",options:["log₃(9)·log₃(x)","log₃(9)+log₃(x)","log₃(9−x)","log₃(9)/log₃(x)"],correct:1,why:"The product rule changes log of a product into the sum of the logs."}
+ ]}
+ ]
+},
+{
+ id:"systems",icon:"07",title:"Systems of Equations & Matrices",level:"Core",
+ intro:"Solve multiple equations together and interpret intersections and solutions.",
+ lessons:[
+ {title:"Solving Systems of Equations",time:"25 min",objectives:["Solve systems by substitution.","Solve systems by elimination.","Interpret the number of solutions."],
+ prereq:"A solution to an equation makes it true. A solution to a system must make every equation in the system true at the same time.",
+ sections:[
+ {h:"1. What is a system?",p:"A system contains two or more equations involving the same variables. For two linear equations, the solution is the point where their graphs intersect.",math:"y = x + 1\\ny = −x + 5",p2:"At an intersection, both equations have the same x and y values."},
+ {h:"2. Substitution",p:"Substitution replaces one variable with an equivalent expression from another equation.",steps:[["Start","y = x + 1 and x + y = 5."],["Substitute y","Replace y in the second equation: x + (x + 1) = 5."],["Solve for x","2x + 1 = 5, so 2x = 4 and x = 2."],["Find y","y = 2 + 1 = 3. The solution is (2, 3)."]]},
+ {h:"3. Elimination",p:"Elimination adds or subtracts equations to remove one variable. Choose the equations or multiply them so that one variable has opposite coefficients.",steps:[["Start","x + y = 7 and x − y = 1."],["Add the equations","2x = 8 because +y and −y cancel."],["Solve","x = 4."],["Substitute","4 + y = 7, so y = 3. The solution is (4, 3)."]]},
+ {h:"4. Three possible outcomes",bullets:["One solution: the lines intersect at one point.","No solution: distinct parallel lines never intersect.","Infinitely many solutions: both equations describe the same line."],p2:"For example, x+y=4 and 2x+2y=8 represent the same line, so infinitely many points satisfy both."},
+ {h:"5. Common mistakes",bullets:["Changing a sign incorrectly when adding equations.","Finding x but forgetting to find y.","Reporting an ordered pair in the wrong order.","Assuming every system has exactly one solution."]}
+ ],
+ questions:[
+ {q:"Solve x + y = 7 and x − y = 1.",options:["(3, 4)","(4, 3)","(1, 7)","(7, 1)"],correct:1,why:"Add equations to get 2x=8, so x=4. Then y=3."},
+ {q:"What does one intersection point mean?",options:["No solution","One solution","Infinitely many solutions","The lines are parallel"],correct:1,why:"The intersection is the single ordered pair that satisfies both equations."},
+ {q:"What is the best first step for y = 2x + 1 and x + y = 10?",options:["Substitute 2x+1 for y","Square both equations","Divide both sides by zero","Ignore the first equation"],correct:0,why:"Substitute the expression for y into the other equation."}
+ ]},
+ {title:"Systems of Inequalities",time:"25 min",objectives:["Graph linear inequalities.","Identify feasible regions.","Interpret solutions to a system of inequalities."],
+ prereq:"A linear inequality such as y > 2x + 1 describes a region of the coordinate plane rather than a single line.",
+ sections:[
+ {h:"1. Graph one inequality",p:"First graph the boundary line. Use a dashed line for strict inequalities (< or >), and a solid line when the boundary is included (≤ or ≥). Then shade the correct side.",p2:"For y > 2x + 1, the boundary is y = 2x + 1. The solution is above the line because y must be greater than the line's value."},
+ {h:"2. Test a point",p:"When unsure which side to shade, test a point not on the boundary, often (0,0). For y > 2x + 1, the test becomes 0 > 1, which is false. Therefore the side containing the origin is not the solution.",steps:[["Choose a point","Try (0,0)."],["Substitute","0 > 2(0) + 1 becomes 0 > 1."],["Interpret","False, so do not shade the side containing (0,0)."]]},
+ {h:"3. Systems and feasible regions",p:"For a system, shade the solution region for each inequality. The overlap is the feasible region: every point in it satisfies all inequalities simultaneously.",p2:"Applications may use systems to represent limits on cost, time, production, or resources. A valid answer must satisfy every constraint."},
+ {h:"4. Common mistakes",bullets:["Using a solid boundary for a strict inequality.","Shading the wrong side of a line.","Forgetting that a system's solution is the overlap of all regions."]}
+ ],
+ questions:[
+ {q:"For y ≥ 3x − 2, is the boundary line solid or dashed?",options:["Solid","Dashed","No boundary line","It depends on x"],correct:0,why:"The ≥ symbol includes equality, so the boundary is solid."},
+ {q:"What is the solution to a system of inequalities on a graph?",options:["Any one boundary line","The overlap of all solution regions","Only the origin","The region outside every inequality"],correct:1,why:"A point must satisfy all inequalities, so it must be in their overlap."},
+ {q:"For y < x + 4, which direction is shaded?",options:["Above the line","Below the line","Only on the line","No region"],correct:1,why:"The y-value must be less than the boundary line's y-value."}
+ ]}
+ ]
+},
+{
+ id:"sequences",icon:"08",title:"Sequences, Series & Probability",level:"Core",
+ intro:"Recognize patterns, calculate sequence terms, and use probability rules.",
+ lessons:[
+ {title:"Arithmetic and Geometric Sequences",time:"25 min",objectives:["Recognize arithmetic sequences.","Recognize geometric sequences.","Find terms and sums."],
+ prereq:"A sequence is an ordered list of numbers. The position of a term is its index, often written n.",
+ sections:[
+ {h:"1. Arithmetic sequences",p:"An arithmetic sequence adds the same number each time. This constant difference is d.",math:"aₙ = a₁ + (n − 1)d",p2:"For 4, 7, 10, 13, … the common difference is 3. The fifth term is 4 + (5−1)3 = 16."},
+ {h:"2. Geometric sequences",p:"A geometric sequence multiplies by the same nonzero ratio each time. This constant multiplier is r.",math:"aₙ = a₁ · rⁿ⁻¹",p2:"For 3, 6, 12, 24, … the common ratio is 2. The fifth term is 3 · 2⁴ = 48."},
+ {h:"3. How to tell them apart",bullets:["Arithmetic: subtract consecutive terms and get the same difference.","Geometric: divide consecutive terms and get the same ratio.","A sequence can be neither if neither pattern stays constant."]},
+ {h:"4. Arithmetic series",p:"A series is the sum of sequence terms. For the first n terms of an arithmetic sequence, multiply n by the average of the first and last terms.",math:"Sₙ = n(a₁ + aₙ)/2",p2:"For 2 + 4 + 6 + 8 + 10, there are 5 terms and the average of the first and last is (2+10)/2 = 6. The sum is 5·6 = 30."},
+ {h:"5. Common mistakes",bullets:["Using n instead of n−1 in the term formulas.","Confusing the common difference with the common ratio.","Mixing up a sequence (terms) and a series (sum of terms)."]}
+ ],
+ questions:[
+ {q:"What is the common difference of 5, 9, 13, 17, …?",options:["2","4","5","9"],correct:1,why:"Each term increases by 4."},
+ {q:"What is the fifth term of 2, 6, 18, 54, …?",options:["108","162","324","486"],correct:2,why:"The ratio is 3, so the fifth term is 2·3⁴ = 162. Wait: the sequence is 2, 6, 18, 54, 162. Correct answer: 162."},
+ {q:"Which formula describes a geometric sequence?",options:["aₙ = a₁ + (n−1)d","aₙ = a₁rⁿ⁻¹","y = mx + b","x = −b/2a"],correct:1,why:"A geometric sequence multiplies by a constant ratio r."}
+ ]},
+ {title:"Probability and Counting",time:"25 min",objectives:["Calculate simple probabilities.","Use the complement rule.","Apply basic counting principles."],
+ prereq:"Probability measures how likely an event is. For equally likely outcomes, probability equals favorable outcomes divided by total outcomes.",
+ sections:[
+ {h:"1. Basic probability",p:"If every outcome is equally likely, count the outcomes that satisfy the event and divide by the total number of possible outcomes.",math:"P(A) = favorable outcomes / total outcomes",p2:"A fair six-sided die has six equally likely outcomes. The probability of rolling a 4 is 1/6."},
+ {h:"2. Complement rule",p:"The complement of an event means that the event does not occur. An event and its complement together cover all possible outcomes.",math:"P(not A) = 1 − P(A)",p2:"If the probability of rain is 0.30, the probability of no rain is 1 − 0.30 = 0.70."},
+ {h:"3. Counting choices",p:"If one task has m choices and a separate task has n choices, and every choice can be paired, the total number of combinations is m·n.",steps:[["Example","A student has 3 shirts and 2 pairs of pants."],["Count combinations","Each shirt can be paired with either pair of pants: 3·2 = 6 outfits."]]},
+ {h:"4. Independent events",p:"Two events are independent when one event's outcome does not change the probability of the other. For independent events, multiply their probabilities to find the probability that both occur.",math:"P(A and B) = P(A) · P(B)",p2:"For two fair coin flips, the probability of heads on both is 1/2 · 1/2 = 1/4."},
+ {h:"5. Common mistakes",bullets:["Using favorable outcomes as the denominator.","Adding probabilities for independent events when you need both events to happen.","Assuming events are independent without checking the situation.","Forgetting that probabilities are between 0 and 1."]}
+ ],
+ questions:[
+ {q:"What is the probability of rolling an even number on a fair six-sided die?",options:["1/6","1/3","1/2","2/3"],correct:2,why:"The favorable outcomes are 2, 4, and 6: three out of six, or 1/2."},
+ {q:"If P(A) = 0.2, what is P(not A)?",options:["0.2","0.8","1.2","5"],correct:1,why:"The complement is 1 − 0.2 = 0.8."},
+ {q:"What is the probability of heads twice in two independent fair coin flips?",options:["1/2","1/3","1/4","1"],correct:2,why:"Multiply 1/2 by 1/2 to get 1/4."}
+ ]}
+ ]
+}
 ];
 
-const bank=[
-{t:"functions",q:"If f(x)=3x−4, what is f(5)?",o:["7","11","15","19"],a:1,e:"Substitute 5: 3(5)−4=11."},
-{t:"functions",q:"What is the domain of f(x)=1/(x−4)?",o:["All real numbers","x≠4","x>4","x<4"],a:1,e:"The denominator cannot equal zero, so x≠4."},
-{t:"functions",q:"If f(x)=x+3 and g(x)=2x, what is f(g(x))?",o:["2x+3","2x+6","x+6","3x"],a:0,e:"Substitute g(x)=2x into f: f(g(x))=2x+3."},
-{t:"functions",q:"What is the inverse of f(x)=2x+6?",o:["2x−6","(x−6)/2","(x+6)/2","1/(2x+6)"],a:1,e:"Switch x and y: x=2y+6, then solve for y."},
-{t:"functions",q:"Solve −3x>12.",o:["x>−4","x<−4","x>4","x<4"],a:1,e:"Divide by −3 and reverse the inequality sign."},
-{t:"functions",q:"What does f(x−5) do to the graph of f(x)?",o:["Left 5","Right 5","Up 5","Down 5"],a:1,e:"Subtracting inside the input shifts the graph right."},
-{t:"quadratics",q:"What is the vertex of y=(x−2)²+5?",o:["(−2,5)","(2,5)","(2,−5)","(−2,−5)"],a:1,e:"Vertex form gives vertex (h,k)=(2,5)."},
-{t:"quadratics",q:"Factor x²−16.",o:["(x−8)(x+2)","(x−4)²","(x−4)(x+4)","(x−16)(x+1)"],a:2,e:"Use the difference of squares."},
-{t:"quadratics",q:"Solve x²=49.",o:["7 only","−7 only","±7","49"],a:2,e:"Both 7 and −7 square to 49."},
-{t:"quadratics",q:"What is the discriminant of x²−4x+4?",o:["−4","0","4","16"],a:1,e:"D=b²−4ac=16−16=0."},
-{t:"quadratics",q:"Where is the axis of symmetry for y=x²−6x+2?",o:["x=−3","x=3","x=6","x=2"],a:1,e:"x=−b/(2a)=6/2=3."},
-{t:"quadratics",q:"Which equation has no real roots?",o:["x²−4=0","x²+4=0","x²−2x+1=0","x²−9=0"],a:1,e:"x²=−4 has no real solution."},
-{t:"polynomials",q:"Expand (x+2)(x+3).",o:["x²+5x+6","x²+6x+5","x²+x+6","x²+5"],a:0,e:"Multiply each term to get x²+5x+6."},
-{t:"polynomials",q:"What is i²?",o:["1","−1","i","−i"],a:1,e:"By definition, i²=−1."},
-{t:"polynomials",q:"What is the remainder when P(x)=x²+1 is divided by x−2?",o:["2","4","5","6"],a:2,e:"The remainder is P(2)=4+1=5."},
-{t:"polynomials",q:"Which is a factorization of x²−9?",o:["(x−9)(x+1)","(x−3)(x+3)","(x−3)²","(x−9)²"],a:1,e:"x²−9 is a difference of squares."},
-{t:"polynomials",q:"Simplify (3+2i)+(1−5i).",o:["4+7i","4−3i","2−3i","3−10i"],a:1,e:"Add real parts and imaginary parts separately."},
-{t:"polynomials",q:"What is i⁷?",o:["1","−1","i","−i"],a:3,e:"Powers repeat every four: i⁷=i³=−i."},
-{t:"rational",q:"Simplify (x²−9)/(x−3), x≠3.",o:["x−3","x+3","x²+3","x"],a:1,e:"Factor the numerator and cancel x−3."},
-{t:"rational",q:"Simplify 1/x+1/2.",o:["2/(x+2)","(x+2)/(2x)","1/(2x)","3/x"],a:1,e:"Use common denominator 2x."},
-{t:"rational",q:"What value is excluded from 1/(x+5)?",o:["5","−5","0","1"],a:1,e:"x+5 cannot equal zero, so x≠−5."},
-{t:"rational",q:"If y varies inversely with x and y=6 when x=2, what is k?",o:["3","8","12","18"],a:2,e:"For y=k/x, k=xy=12."},
-{t:"rational",q:"Solve 1/x=2.",o:["2","1/2","−1/2","0"],a:1,e:"Multiply by x: 1=2x, so x=1/2."},
-{t:"radicals",q:"Simplify x³·x⁵.",o:["x¹⁵","x⁸","x²","2x⁸"],a:1,e:"Add exponents with the same base."},
-{t:"radicals",q:"Simplify √50.",o:["25√2","5√2","10√5","2√25"],a:1,e:"√50=√(25·2)=5√2."},
-{t:"radicals",q:"What is log₂(16)?",o:["2","3","4","8"],a:2,e:"2⁴=16, so the logarithm is 4."},
-{t:"radicals",q:"Solve 3ˣ=27.",o:["2","3","6","9"],a:1,e:"27=3³, so x=3."},
-{t:"radicals",q:"An amount decreases by 20% each period. What is its decay factor?",o:["0.20","0.80","1.20","−0.20"],a:1,e:"Subtract 0.20 from 1 to get 0.80."},
-{t:"radicals",q:"Simplify (x²)³.",o:["x⁵","x⁶","x⁸","3x²"],a:1,e:"Multiply exponents: 2×3=6."},
-{t:"sequences",q:"What is the 6th term of 3,7,11,15,...?",o:["19","21","23","27"],a:2,e:"The common difference is 4: 3+5(4)=23."},
-{t:"sequences",q:"What is the common ratio of 2,6,18,54,...?",o:["2","3","4","6"],a:1,e:"Divide consecutive terms: 6/2=3."},
-{t:"sequences",q:"How many outfits can be made with 3 shirts and 4 pants?",o:["7","12","16","24"],a:1,e:"The multiplication principle gives 3×4=12."},
-{t:"sequences",q:"What is the sum of the first five terms 2,4,6,8,10?",o:["20","25","30","32"],a:2,e:"2+4+6+8+10=30."},
-{t:"statistics",q:"Which measure is generally less affected by an extreme outlier?",o:["Mean","Median","Range","Maximum"],a:1,e:"The median is resistant to extreme values."},
-{t:"statistics",q:"Two fair coin flips both landing heads have probability:",o:["1/2","1/3","1/4","3/4"],a:2,e:"The independent probabilities multiply: 1/2×1/2=1/4."},
-{t:"statistics",q:"When does order matter?",o:["Selecting two committee members","Choosing a president and vice president","Choosing two books to read","Selecting two snacks"],a:1,e:"The roles are different, so switching the people changes the outcome."},
-{t:"statistics",q:"What does positive correlation indicate?",o:["One variable always causes the other","Variables tend to increase together","Variables are unrelated","Both variables are constant"],a:1,e:"Positive correlation describes a tendency to increase together, not causation."},
-{t:"statistics",q:"What is P(not A) if P(A)=0.35?",o:["0.35","0.55","0.65","1.35"],a:2,e:"The complement is 1−0.35=0.65."},
-{t:"review",q:"Solve 2x+7=19.",o:["5","6","12","13"],a:1,e:"Subtract 7, then divide 12 by 2."},
-{t:"review",q:"What is the y-intercept of y=3x−4?",o:["3","−4","4","−3"],a:1,e:"The y-intercept is b in slope-intercept form."},
-{t:"review",q:"Solve x²−5x+6=0.",o:["1 and 6","−2 and −3","2 and 3","−1 and −6"],a:2,e:"Factor as (x−2)(x−3)=0."},
-{t:"review",q:"What is the distance between (0,0) and (3,4)?",o:["4","5","6","7"],a:1,e:"Distance is √(3²+4²)=5."}
+const extraQuestions = [
+{topic:"quadratics",q:"Solve x² − 9 = 0.",options:["x = 9","x = ±3","x = −9","x = 3 only"],correct:1,why:"x²=9, so x=±3."},
+{topic:"quadratics",q:"What is the vertex of y=(x+2)²−4?",options:["(2,−4)","(−2,−4)","(−2,4)","(2,4)"],correct:1,why:"Compare with y=(x−h)²+k. Here h=−2 and k=−4."},
+{topic:"polynomials",q:"What is the degree of 5x³ + x⁷ − 4?",options:["3","4","5","7"],correct:3,why:"The highest exponent is 7."},
+{topic:"rational",q:"What restriction applies to 2/(x−7)?",options:["x ≠ 2","x ≠ 7","x ≠ −7","No restriction"],correct:1,why:"The denominator cannot be zero, so x cannot equal 7."},
+{topic:"radicals",q:"Simplify √80.",options:["4√5","8√10","2√20","5√4"],correct:0,why:"80=16·5, so √80=4√5."},
+{topic:"exponential",q:"Solve 3ˣ = 27.",options:["x=2","x=3","x=9","x=27"],correct:1,why:"27=3³, so x=3."},
+{topic:"systems",q:"If two distinct lines are parallel, how many intersection solutions are there?",options:["Zero","One","Two","Infinitely many"],correct:0,why:"Distinct parallel lines never intersect."},
+{topic:"sequences",q:"Find the sixth term of 10, 8, 6, 4, …",options:["0","−2","2","−4"],correct:1,why:"The common difference is −2. The sixth term is 10+5(−2)=0. Correct answer: 0."}
 ];
 
-const formulas=[
-["Slope","m=(y₂−y₁)/(x₂−x₁)"],["Slope-intercept form","y=mx+b"],["Point-slope form","y−y₁=m(x−x₁)"],
-["Quadratic formula","x=(-b±√(b²−4ac))/(2a)"],["Discriminant","D=b²−4ac"],["Vertex form","y=a(x−h)²+k"],
-["Axis of symmetry","x=−b/(2a)"],["Difference of squares","a²−b²=(a−b)(a+b)"],
-["Exponent product rule","aᵐ·aⁿ=aᵐ⁺ⁿ"],["Exponent quotient rule","aᵐ/aⁿ=aᵐ⁻ⁿ, a≠0"],
-["Power rule","(aᵐ)ⁿ=aᵐⁿ"],["Negative exponent","a⁻ⁿ=1/aⁿ, a≠0"],
-["Rational exponent","a^(m/n)=ⁿ√(aᵐ)"],["Log product rule","log_b(MN)=log_b(M)+log_b(N)"],
-["Log quotient rule","log_b(M/N)=log_b(M)−log_b(N)"],["Log power rule","log_b(Mⁿ)=n log_b(M)"],
-["Change of base","log_b(x)=ln(x)/ln(b)"],["Arithmetic sequence","aₙ=a₁+(n−1)d"],
-["Geometric sequence","aₙ=a₁rⁿ⁻¹"],["Arithmetic series","Sₙ=n(a₁+aₙ)/2"],
-["Geometric series","Sₙ=a₁(1−rⁿ)/(1−r), r≠1"],["Probability","P(A)=favorable outcomes/total equally likely outcomes"],
-["Complement","P(not A)=1−P(A)"],["Permutations","nPᵣ=n!/(n−r)!"],
-["Combinations","nCᵣ=n!/[r!(n−r)!]"],["Distance formula","d=√((x₂−x₁)²+(y₂−y₁)²)"],
-["Circle formulas","A=πr²; C=2πr"]
-];
+const allLessons = () => units.flatMap(u=>u.lessons.map((l,i)=>({...l,unitId:u.id,unitTitle:u.title,unitIcon:u.icon,index:i,id:u.id+"-"+i})));
+const lessonById = id => allLessons().find(l=>l.id===id);
+const totalLessons = () => allLessons().length;
 
-const KEY="algebra2cbe_progress_v1";
-function fresh(){return{completed:[],activity:[],scores:[],notes:"",studyDates:[],missed:{}}}
-let state=fresh();
-try{state={...fresh(),...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch{}
-let currentLesson=null,quiz=null,examMode=false;
-const $=id=>document.getElementById(id);
-const allLessons=()=>units.flatMap(u=>u.lessons.map((l,i)=>({id:u.id+"-"+i,unit:u,index:i,title:l[0],idea:l[1],example:l[2],caution:l[3],number:0})));
-allLessons().forEach((l,i)=>l.number=i+1);
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
-function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
-function toast(s){$("toast").textContent=s;$("toast").style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$("toast").style.display="none",2200)}
-function go(page){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));$("page-"+page).classList.add("active");document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));if(page==="course")renderLessons();if(page==="formulas")renderFormulas();if(page==="practice")renderWeak();window.scrollTo({top:0,behavior:"smooth"})}
-document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>go(b.dataset.page));
-document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
-function streak(){const ds=[...new Set(state.studyDates)].sort().reverse();if(!ds.length)return 0;const d=new Date();const y=new Date(d);y.setDate(y.getDate()-1);const key=x=>x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0");if(ds[0]!==key(d)&&ds[0]!==key(y))return 0;let n=0,expected=new Date(ds[0]+"T12:00:00");for(const s of ds){if(s!==key(expected))break;n++;expected.setDate(expected.getDate()-1)}return n}
-function logActivity(label){const d=today();if(!state.studyDates.includes(d))state.studyDates.push(d);state.activity.unshift({label,date:d});state.activity=state.activity.slice(0,40);save()}
-function renderWeek(){const names=["M","T","W","T","F","S","S"],d=new Date(),start=new Date(d);start.setDate(d.getDate()-((d.getDay()+6)%7));const key=x=>x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0");$("weekGrid").innerHTML=names.map((n,i)=>{const x=new Date(start);x.setDate(start.getDate()+i);const done=state.studyDates.includes(key(x));return `<div class="day">${n}<div class="dot ${done?"done":""}">${done?"✓":x.getDate()}</div></div>`}).join("");$("streakMessage").textContent=state.studyDates.includes(today())?"Study logged for today. Keep going.":"Complete a lesson or quiz today to build your streak."}
-function renderStats(){const ls=allLessons(),done=ls.filter(l=>state.completed.includes(l.id)).length,p=Math.round(100*done/ls.length),s=streak(),avg=state.scores.length?Math.round(state.scores.reduce((a,b)=>a+b.percent,0)/state.scores.length):null;$("progressStat").textContent=p+"%";$("progressText").textContent=p+"%";$("progressBar").style.width=p+"%";$("streakStat").textContent=s;$("streakBig").textContent=s;$("averageStat").textContent=avg===null?"—":avg+"%";$("quizCount").textContent=state.scores.length?state.scores.length+" quizzes completed":"No quizzes yet";$("activitiesStat").textContent=state.activity.length;$("completedCount").textContent=done+" / "+ls.length+" completed";$("remaining").textContent=done===ls.length?"All lessons marked complete.":(ls.length-done)+" lessons remaining";$("lessonCounter").textContent=done+"/"+ls.length+" complete";renderModules();renderActivity();renderRecommendations();renderWeek()}
-function renderModules(){$("moduleGrid").innerHTML=units.map(u=>{const total=u.lessons.length,done=u.lessons.filter((l,i)=>state.completed.includes(u.id+"-"+i)).length;return `<div class="module"><h4>${u.icon} ${esc(u.title)}</h4><p>${esc(u.desc)}</p><div class="track"><span style="width:${done/total*100}%"></span></div><div class="module-bottom"><span class="muted">${done}/${total} lessons</span><button class="btn" data-unit="${u.id}">Open →</button></div></div>`}).join("");document.querySelectorAll("[data-unit]").forEach(b=>b.onclick=()=>{go("course");$("lessonSearch").value="";renderLessons(b.dataset.unit)})}
-function renderActivity(){$("activityList").innerHTML=state.activity.length?state.activity.slice(0,6).map(a=>`<div class="activity"><strong>${esc(a.label)}</strong><span class="muted">${a.date}</span></div>`).join(""):'<div class="empty">Completed lessons and quizzes will appear here.</div>'}
-function renderRecommendations(){const next=allLessons().find(l=>!state.completed.includes(l.id));$("recommendations").innerHTML=(next?`<div class="activity"><div><strong>Next lesson</strong><div>${esc(next.title)}</div><span class="muted">${esc(next.unit.title)}</span></div><button class="btn" id="nextLesson">Study</button></div>`:'<div class="activity">All lessons marked complete. Take a cumulative quiz.</div>')+`<div class="activity"><div><strong>Practise weak topics</strong><div class="muted">Review questions you missed.</div></div><button class="btn" id="weakGo">Review</button></div><div class="activity"><div><strong>Review formulas</strong><div class="muted">Practise recalling formulas from memory.</div></div><button class="btn" id="formulaGo">Open</button></div>`;if(next)$("nextLesson").onclick=()=>openLesson(next.id);$("weakGo").onclick=()=>go("practice");$("formulaGo").onclick=()=>go("formulas")}
-function renderLessons(filter=""){const q=($("lessonSearch").value||"").toLowerCase();const list=allLessons().filter(l=>(!filter||l.unit.id===filter)&&(`${l.title} ${l.unit.title} ${l.idea}`).toLowerCase().includes(q));$("lessonList").innerHTML=list.length?list.map(l=>`<div class="lesson"><div class="lesson-num">${state.completed.includes(l.id)?"✓":l.number}</div><div class="lesson-info"><strong>${esc(l.title)}</strong><small>${esc(l.unit.title)}</small></div>${state.completed.includes(l.id)?'<span class="donecheck">✓</span>':""}<button class="btn" data-open="${l.id}">Study →</button></div>`).join(""):'<div class="empty">No matching lessons.</div>';document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openLesson(b.dataset.open))}
-$("lessonSearch").addEventListener("input",()=>renderLessons());
-function openLesson(id){currentLesson=allLessons().find(l=>l.id===id);if(!currentLesson)return;$("lessonUnit").textContent=currentLesson.unit.title+" · Lesson "+currentLesson.index+1;$("lessonContent").innerHTML=`<div class="eyebrow">LESSON ${currentLesson.number} OF ${allLessons().length}</div><h2>${esc(currentLesson.title)}</h2><p class="muted">${esc(currentLesson.unit.desc)}</p><h3>Core concept</h3><p>${esc(currentLesson.idea)}</p><h3>Worked example</h3><div class="example">${esc(currentLesson.example)}</div><h3>Common mistake to avoid</h3><div class="formula">${esc(currentLesson.caution||"Show each step clearly and check your result.")}</div><h3>How to study this topic</h3><ol><li>Explain the key rule without looking at the lesson.</li><li>Work through the example on paper.</li><li>Create a similar problem and solve it independently.</li><li>Check your answer and identify any mistakes.</li></ol><p class="muted">This is a concise instructional lesson, not a guarantee of complete coverage of the official course standards.</p><button class="btn" id="lessonPractice">Practise this topic →</button>`;$("lessonPractice").onclick=()=>{const topic=currentLesson.unit.id;go("practice");$("topicSelect").value=topic};$("markComplete").textContent=state.completed.includes(id)?"Completed ✓":"Mark complete ✓";go("lesson")}
-$("markComplete").onclick=()=>{if(!currentLesson)return;if(!state.completed.includes(currentLesson.id)){state.completed.push(currentLesson.id);logActivity("Completed: "+currentLesson.title);toast("Lesson completed.");}else toast("Already completed.");$("markComplete").textContent="Completed ✓";renderStats()};
-function renderFormulas(){const q=($("formulaSearch").value||"").toLowerCase();$("formulaGrid").innerHTML=formulas.filter(f=>f.join(" ").toLowerCase().includes(q)).map(f=>`<div class="formula-card"><h4>${esc(f[0])}</h4><code>${esc(f[1])}</code></div>`).join("")||'<div class="empty">No matching formulas.</div>'}
-$("formulaSearch").addEventListener("input",renderFormulas);
-$("notes").value=state.notes||"";$("saveNotes").onclick=()=>{state.notes=$("notes").value;save();toast("Notes saved.")};
-function setupTopics(){$("topicSelect").innerHTML=units.map(u=>`<option value="${u.id}">${esc(u.title)}</option>`).join("")}
-setupTopics();
-function startQuiz(mode){examMode=mode;const topic=$("topicSelect").value;let pool=bank.filter(q=>mode||topic==="all"||q.t===topic);if(!pool.length)pool=[...bank];const count=mode?30:Math.min(10,pool.length);quiz={mode,items:pool.sort(()=>Math.random()-.5).slice(0,count),i:0,answers:[],locked:false,started:Date.now()};$("practiceStart").style.display=mode?"none":"block";$("examIntro").style.display="none";$("practiceArea").style.display=mode?"none":"block";$("examArea").style.display=mode?"block":"none";renderQuestion()}
-function renderQuestion(){const q=quiz.items[quiz.i],target=quiz.mode?"examArea":"practiceArea";quiz.locked=false;$(target).innerHTML=`<div class="quiz-top"><span>${quiz.mode?"MOCK EXAM":"TOPIC PRACTICE"} · QUESTION ${quiz.i+1}/${quiz.items.length}</span><span>${Math.round(quiz.i/quiz.items.length*100)}% complete</span></div><div class="progress"><div class="fill" style="width:${quiz.i/quiz.items.length*100}%"></div></div><h3>${esc(q.q)}</h3><div>${q.o.map((o,i)=>`<button class="option" data-choice="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join("")}</div><div id="answerFeedback"></div><div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="btn primary" id="quizNext" disabled>${quiz.i===quiz.items.length-1?"Finish quiz":"Next →"}</button></div>`;document.querySelectorAll("[data-choice]").forEach(b=>b.onclick=()=>chooseAnswer(+b.dataset.choice));$("quizNext").onclick=nextQuestion}
-function chooseAnswer(i){if(quiz.locked)return;quiz.locked=true;const q=quiz.items[quiz.i],ok=i===q.a;quiz.answers.push({q,choice:i,ok});if(!ok)state.missed[q.t]=(state.missed[q.t]||0)+1;document.querySelectorAll("[data-choice]").forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add("correct");else if(j===i)b.classList.add("wrong")});$("answerFeedback").innerHTML=quiz.mode?'<div class="feedback">Answer recorded. Explanations will be shown at the end of the mock exam.</div>':`<div class="feedback"><strong style="color:${ok?"var(--green)":"var(--red)"}">${ok?"Correct":"Incorrect"}</strong><br>${esc(q.e)}</div>`;$("quizNext").disabled=false;save()}
-function nextQuestion(){if(!quiz.locked)return;if(quiz.i<quiz.items.length-1){quiz.i++;renderQuestion()}else finishQuiz()}
-function finishQuiz(){const correct=quiz.answers.filter(a=>a.ok).length,pct=Math.round(correct/quiz.items.length*100);state.scores.push({date:today(),percent:pct,correct,total:quiz.items.length,mode:quiz.mode?"Mock exam":"Topic practice"});logActivity((quiz.mode?"Mock exam":"Practice quiz")+": "+correct+"/"+quiz.items.length+" ("+pct+"%)");const target=quiz.mode?"examArea":"practiceArea";$(target).innerHTML=`<div class="eyebrow">ASSESSMENT COMPLETE</div><h2 style="font-size:42px;margin:8px 0">${pct}%</h2><h3>${correct} / ${quiz.items.length} correct</h3><p>${pct>=80?"Strong result on this practice set. Continue reviewing missed questions.":"Use the explanations below to identify topics that need more work."}</p><div class="progress"><div class="fill" style="width:${pct}%"></div></div><h3>Answer review</h3>${quiz.answers.map((a,i)=>`<div class="activity"><div><strong>${i+1}. ${esc(a.q.q)}</strong><div class="muted">Your answer: ${esc(a.q.o[a.choice])} · Correct: ${esc(a.q.o[a.q.a])}</div><div>${esc(a.q.e)}</div></div><strong style="color:${a.ok?"var(--green)":"var(--red)"}">${a.ok?"✓":"✗"}</strong></div>`).join("")}<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:15px"><button class="btn primary" id="retry">Try again</button><button class="btn" id="dash">Dashboard</button><button class="btn" id="reviewWeak">Review weak topics</button></div>`;$("retry").onclick=()=>startQuiz(quiz.mode);$("dash").onclick=()=>go("dashboard");$("reviewWeak").onclick=()=>{go("practice");renderWeak()};$("practiceStart").style.display=quiz.mode?"none":"block";renderStats();renderWeak();save()}
-$("startPractice").onclick=()=>startQuiz(false);
-$("startExam").onclick=()=>startQuiz(true);
-function renderWeak(){const entries=Object.entries(state.missed||{}).sort((a,b)=>b[1]-a[1]);$("weakTopics").innerHTML=entries.length?entries.slice(0,6).map(([id,n])=>{const u=units.find(x=>x.id===id);return `<div class="activity"><div><strong>${esc(u?u.title:id)}</strong><div class="muted">${n} missed answers recorded</div></div><button class="btn" data-weak="${id}">Practise</button></div>`}).join(""):'<div class="empty">No missed answers recorded yet. Complete a quiz to build your review list.</div>';document.querySelectorAll("[data-weak]").forEach(b=>b.onclick=()=>{$("topicSelect").value=b.dataset.weak;startQuiz(false)})}
-$("export").onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="algebra2cbe-progress.json";a.click();URL.revokeObjectURL(url);toast("Progress backup exported.")};
-$("reset").onclick=()=>{if(confirm("Reset all saved progress, streaks, quiz scores, missed topics, and notes? This cannot be undone.")){state=fresh();save();$("notes").value="";renderStats();renderWeak();toast("Progress reset.")}};
-$("continue").onclick=()=>{const l=allLessons().find(x=>!state.completed.includes(x.id));if(l)openLesson(l.id);else go("course")};
-renderStats();renderLessons();renderFormulas();renderWeak();
+function freshState() {
+ return {completed:[],scores:[],studyDates:[],notes:"",attempts:[],lastLesson:null,weakTopics:{},history:[]};
+}
+function loadState() {
+ try {
+  const parsed=JSON.parse(localStorage.getItem(KEY)||"null");
+  return parsed && typeof parsed==="object" ? {...freshState(),...parsed} : freshState();
+ } catch { return freshState(); }
+}
+let state=loadState();
+let page="home",currentLesson=null,practiceQuestions=[],practiceIndex=0,practiceAnswers=[],practiceChecked=[],practiceMode="practice",examQuestions=[],examAnswers=[],examFinished=false;
+function save() {
+ try {localStorage.setItem(KEY,JSON.stringify(state));} catch(e) {console.warn("Could not save progress",e);}
+ updateHeader();
+}
+function recordStudy() {
+ const d=today();
+ if(!state.studyDates.includes(d)) state.studyDates.push(d);
+ save();
+}
+function streak() {
+ const dates=new Set(state.studyDates);
+ let d=new Date();let n=0;
+ while(true) {
+  const key=d.toLocaleDateString("en-CA");
+  if(!dates.has(key)) break;
+  n++;d.setDate(d.getDate()-1);
+ }
+ return n;
+}
+function pct() {return Math.round(state.completed.length/totalLessons()*100);}
+function updateHeader() {
+ $("#header-progress").textContent=pct()+"% complete";
+ $("#header-streak").textContent=streak()+" day streak";
+ $("#side-percent").textContent=pct()+"%";
+ $("#side-bar").style.width=pct()+"%";
+ $("#side-lessons").textContent=state.completed.length+" of "+totalLessons()+" lessons completed";
+}
+function toast(msg) {
+ const t=$("#toast");t.textContent=msg;t.style.opacity="1";
+ clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.style.opacity="0",2200);
+}
+function navigate(p) {
+ page=p;
+ $$(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===p));
+ render();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+$$(".nav-btn").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.page)));
+
+function render() {
+ updateHeader();
+ if(page==="home") renderHome();
+ else if(page==="course") renderCourse();
+ else if(page==="lesson") renderLesson();
+ else if(page==="practice") renderPracticeSetup();
+ else if(page==="practiceRun") renderPracticeRun();
+ else if(page==="exam") renderExam();
+ else if(page==="formulas") renderFormulas();
+ else if(page==="notes") renderNotes();
+ else if(page==="progress") renderProgress();
+}
+function pageHead(kicker,title,desc) {
+ return `<div class="page-head"><div class="eyebrow">${kicker}</div><h1>${title}</h1><p>${desc}</p></div>`;
+}
+function renderHome() {
+ const next=allLessons().find(l=>!state.completed.includes(l.id))||allLessons()[0];
+ $("#main").innerHTML=pageHead("YOUR COURSE","Learn Algebra 2 step by step","A structured study course with explanations, worked examples, guided practice, and review questions. Study one lesson at a time and build your skills.")+
+ `<div class="grid">
+  <div class="card"><div class="stat">${pct()}%</div><div class="stat-label">Course completed</div><div class="progress" style="margin-top:14px"><div style="width:${pct()}%"></div></div></div>
+  <div class="card"><div class="stat">${state.completed.length}/${totalLessons()}</div><div class="stat-label">Lessons completed</div></div>
+  <div class="card"><div class="stat">${streak()}</div><div class="stat-label">Consecutive study days</div></div>
+ </div>
+ <div class="card" style="margin-top:20px"><div class="eyebrow">CONTINUE LEARNING</div><h2 style="margin:8px 0">${esc(next.title)}</h2><p class="muted">${esc(next.unitTitle)} · ${next.time}</p><button class="btn primary" id="continue-btn">Open lesson →</button></div>
+ <div class="row" style="margin:30px 0 15px"><h2 style="margin:0">Your course</h2><button class="btn" id="all-units">View all lessons</button></div>
+ <div class="grid">${units.map(u=>`<div class="card unit-card"><div class="unit-top"><div class="unit-icon">${u.icon}</div><span class="pill">${u.lessons.length} lessons</span></div><h3>${esc(u.title)}</h3><p class="muted small">${esc(u.intro)}</p><div class="progress"><div style="width:${unitPct(u.id)}%"></div></div><div class="row"><span class="small muted">${unitDone(u.id)}/${u.lessons.length} completed</span><button class="btn soft open-unit" data-unit="${u.id}">Study</button></div></div>`).join("")}</div>
+ <div class="two-col" style="margin-top:20px">
+ <div class="card"><h3>Practice questions</h3><p class="muted">Build accuracy one question at a time and read explanations after each answer.</p><button class="btn primary" id="home-practice">Start practice</button></div>
+ <div class="card"><h3>Mock exam</h3><p class="muted">Try a mixed-topic assessment and review your results at the end.</p><button class="btn primary" id="home-exam">Start mock exam</button></div></div>
+ <footer>Use this as a learning resource. Check your CBE provider's official study guide for the exact tested topics.</footer>`;
+ $("#continue-btn").onclick=()=>openLesson(next.id);
+ $("#all-units").onclick=()=>navigate("course");
+ $$(".open-unit").forEach(b=>b.onclick=()=>{navigate("course");setTimeout(()=>{$("#unit-"+b.dataset.unit)?.scrollIntoView({behavior:"smooth"});},30);});
+ $("#home-practice").onclick=()=>navigate("practice");
+ $("#home-exam").onclick=()=>startExam();
+}
+function unitDone(id){return allLessons().filter(l=>l.unitId===id&&state.completed.includes(l.id)).length;}
+function unitPct(id){const n=units.find(u=>u.id===id).lessons.length;return Math.round(unitDone(id)/n*100);}
+function renderCourse() {
+ $("#main").innerHTML=pageHead("CURRICULUM","Course lessons","Choose a unit and work through its lessons. Read the explanation, follow the examples, and complete the practice questions before moving on.")+
+ units.map(u=>`<section id="unit-${u.id}" style="margin-bottom:28px"><div class="row" style="margin-bottom:12px"><div><div class="eyebrow">UNIT ${u.icon}</div><h2 style="margin:4px 0">${esc(u.title)}</h2><p class="muted small">${esc(u.intro)}</p></div><span class="pill">${unitDone(u.id)}/${u.lessons.length}</span></div><div class="lesson-list">${u.lessons.map((l,i)=>{const id=u.id+"-"+i;return `<button class="lesson-row open-lesson" data-id="${id}"><span class="lesson-check ${state.completed.includes(id)?"done":""}">${state.completed.includes(id)?"✓":i+1}</span><span><strong>${esc(l.title)}</strong><small>${l.time} · ${l.sections.length} teaching sections</small></span><span class="arrow">→</span></button>`}).join("")}</div></section>`).join("");
+ $$(".open-lesson").forEach(b=>b.onclick=()=>openLesson(b.dataset.id));
+}
+function openLesson(id) {
+ currentLesson=lessonById(id);
+ if(!currentLesson)return;
+ state.lastLesson=id;recordStudy();page="lesson";
+ $$(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page==="course"));
+ renderLesson();window.scrollTo(0,0);
+}
+function sectionHTML(s) {
+ let html=`<section class="lesson-block"><h2>${esc(s.h)}</h2>`;
+ if(s.p)html+=`<p>${esc(s.p)}</p>`;
+ if(s.math)html+=`<div class="math">${esc(s.math)}</div>`;
+ if(s.math2)html+=`<div class="math">${esc(s.math2)}</div>`;
+ if(s.math3)html+=`<div class="math">${esc(s.math3)}</div>`;
+ if(s.p2)html+=`<p>${esc(s.p2)}</p>`;
+ if(s.bullets)html+=`<ul>${s.bullets.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+ if(s.steps)html+=s.steps.map((st,i)=>`<div class="step"><strong>${i+1}. ${esc(st[0])}</strong><div>${esc(st[1])}</div></div>`).join("");
+ html+="</section>";return html;
+}
+function renderLesson() {
+ const l=currentLesson;
+ if(!l){navigate("course");return;}
+ const lessons=allLessons(),idx=lessons.findIndex(x=>x.id===l.id);
+ $("#main").innerHTML=`<div class="lesson-content">
+ <div class="lesson-nav"><button class="btn" id="back-course">← All lessons</button><span class="pill">${state.completed.includes(l.id)?"Lesson completed":"Lesson in progress"}</span></div>
+ <div class="eyebrow">${esc(l.unitTitle)}</div><h1>${esc(l.title)}</h1><p class="muted">${l.time} · ${l.sections.length} teaching sections</p>
+ <div class="progress"><div style="width:${state.completed.includes(l.id)?100:35}%"></div></div>
+ <section class="lesson-block"><h2>What you will learn</h2><ul>${l.objectives.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>
+ <section class="lesson-block"><h2>Before you begin</h2><p>${esc(l.prereq)}</p></section>
+ ${l.sections.map(sectionHTML).join("")}
+ ${l.examples?.map(ex=>`<section class="lesson-block"><h2>Additional worked example</h2><p>${esc(ex.q)}</p><div class="note"><strong>Answer: ${esc(ex.a)}</strong></div>${ex.steps.map((s,i)=>`<div class="step"><strong>Step ${i+1}</strong>${esc(s)}</div>`).join("")}</section>`).join("")||""}
+ <section class="lesson-block"><h2>Guided practice</h2><p>Try each question. Choose an answer and check your work to see the explanation.</p>
+ ${l.questions.map((q,i)=>`<div class="practice-card" data-q="${i}"><div class="eyebrow">QUESTION ${i+1} OF ${l.questions.length}</div><h3>${esc(q.q)}</h3><div>${q.options.map((o,j)=>`<label class="answer" data-opt="${j}"><input type="radio" name="lesson-${i}" value="${j}"><span>${esc(o)}</span></label>`).join("")}</div><button class="btn primary check-lesson-answer" data-i="${i}">Check answer</button><div class="feedback hidden" id="lesson-feedback-${i}"></div></div>`).join("")}
+ </section>
+ <div class="lesson-block"><h2>Lesson mastery check</h2><p>Finish the guided practice, then mark this lesson complete. Revisit any questions you missed before moving forward.</p>
+ <button class="btn primary" id="complete-lesson">${state.completed.includes(l.id)?"Completed ✓":"Mark lesson complete"}</button>
+ <div class="row" style="margin-top:20px"><button class="btn" id="prev-lesson" ${idx===0?"disabled":""}>← Previous</button><button class="btn primary" id="next-lesson" ${idx===lessons.length-1?"disabled":""}>Next lesson →</button></div></div>
+ </div>`;
+ $("#back-course").onclick=()=>navigate("course");
+ $$(".check-lesson-answer").forEach(b=>b.onclick=()=>{
+  const i=+b.dataset.i,q=l.questions[i],card=b.closest(".practice-card"),sel=card.querySelector("input:checked"),fb=$("#lesson-feedback-"+i);
+  if(!sel){toast("Choose an answer first.");return;}
+  const correct=+sel.value===q.correct;
+  card.querySelectorAll(".answer").forEach((el,j)=>{el.classList.toggle("correct",j===q.correct);el.classList.toggle("incorrect",j===+sel.value&&!correct);});
+  fb.className="feedback "+(correct?"good":"bad");fb.classList.remove("hidden");
+  fb.innerHTML=`<strong>${correct?"Correct!":"Not quite."}</strong><p>${esc(q.why)}</p>`;
+  b.textContent="Answer checked";b.disabled=true;
+  recordStudy();
+  state.attempts.push({unit:l.unitId,correct,date:today()});
+  if(!correct)state.weakTopics[l.unitId]=(state.weakTopics[l.unitId]||0)+1;
+  save();
+ });
+ $("#complete-lesson").onclick=()=>{
+  if(!state.completed.includes(l.id))state.completed.push(l.id);
+  recordStudy();save();renderLesson();toast("Lesson completion saved.");
+ };
+ $("#prev-lesson").onclick=()=>openLesson(lessons[idx-1].id);
+ $("#next-lesson").onclick=()=>openLesson(lessons[idx+1].id);
+}
+function allQuestions() {
+ return units.flatMap(u=>u.lessons.flatMap(l=>l.questions.map(q=>({...q,topic:u.id,topicTitle:u.title}))));
+}
+function renderPracticeSetup() {
+ $("#main").innerHTML=pageHead("PRACTICE","Practice questions","Select a topic and practice at your own pace. Every answer includes an explanation so you can learn from mistakes.")+
+ `<div class="two-col"><div class="card"><h2>Choose your topic</h2><label for="practice-topic">Unit</label><select id="practice-topic" style="width:100%;margin:8px 0 18px"><option value="all">All topics</option>${units.map(u=>`<option value="${u.id}">${esc(u.title)}</option>`).join("")}</select>
+ <label for="practice-count">Number of questions</label><select id="practice-count" style="width:100%;margin:8px 0 18px"><option value="5">5 questions</option><option value="10">10 questions</option><option value="15">15 questions</option><option value="25">25 questions</option></select>
+ <button class="btn primary" id="start-practice">Start practice</button></div>
+ <div class="card"><h2>How practice works</h2><ul><li>One question appears at a time.</li><li>Choose an answer and check it.</li><li>Read the explanation before continuing.</li><li>Your scores and missed topics are tracked.</li></ul><p class="muted small">Questions are drawn from the lessons in this site. They are practice material, not official exam questions.</p></div></div>
+ <div class="card" style="margin-top:18px"><h2>Review a lesson</h2><div class="lesson-list">${allLessons().map(l=>`<button class="lesson-row quick-open" data-id="${l.id}"><span class="lesson-check">${state.completed.includes(l.id)?"✓":"→"}</span><span><strong>${esc(l.title)}</strong><small>${esc(l.unitTitle)}</small></span></button>`).join("")}</div></div>`;
+ $("#start-practice").onclick=()=>{
+  const topic=$("#practice-topic").value,count=+$("#practice-count").value;
+  let pool=allQuestions().filter(q=>topic==="all"||q.topic===topic);
+  pool=pool.sort(()=>Math.random()-.5).slice(0,count);
+  if(!pool.length){toast("No questions available.");return;}
+  practiceQuestions=pool;practiceIndex=0;practiceAnswers=[];practiceChecked=[];practiceMode="practice";page="practiceRun";render();
+ };
+ $$(".quick-open").forEach(b=>b.onclick=()=>openLesson(b.dataset.id));
+}
+function renderPracticeRun() {
+ const q=practiceQuestions[practiceIndex];
+ if(!q){navigate("practice");return;}
+ const checked=practiceChecked[practiceIndex],answer=practiceAnswers[practiceIndex];
+ $("#main").innerHTML=`<div class="lesson-content">${pageHead("PRACTICE SESSION",`Question ${practiceIndex+1} of ${practiceQuestions.length}`,"Work through the question carefully. You can check the answer before moving to the next question.")}<div class="progress"><div style="width:${(practiceIndex+1)/practiceQuestions.length*100}%"></div></div>
+ <div class="practice-card"><div class="eyebrow">${esc(q.topicTitle||"Mixed topics")}</div><h2>${esc(q.q)}</h2>${q.options.map((o,i)=>`<label class="answer ${checked&&i===q.correct?"correct":checked&&i===answer?"incorrect":""}"><input type="radio" name="practice-answer" value="${i}" ${answer===i?"checked":""} ${checked?"disabled":""}><span>${esc(o)}</span></label>`).join("")}
+ ${checked?`<div class="feedback ${answer===q.correct?"good":"bad"}"><strong>${answer===q.correct?"Correct!":"Incorrect."}</strong><p>${esc(q.why)}</p></div>`:""}
+ <div class="row" style="margin-top:18px">${checked?`<button class="btn primary" id="practice-next">${practiceIndex===practiceQuestions.length-1?"See results":"Next question →"}</button>`:`<button class="btn primary" id="check-practice">Check answer</button>`}<button class="btn" id="exit-practice">Exit practice</button></div></div></div>`;
+ $("#check-practice")?.addEventListener("click",()=>{
+  const a=$('input[name="practice-answer"]:checked');
+  if(!a){toast("Choose an answer first.");return;}
+  practiceAnswers[practiceIndex]=+a.value;practiceChecked[practiceIndex]=true;
+  const correct=+a.value===q.correct;
+  state.attempts.push({unit:q.topic,correct,date:today()});
+  if(!correct)state.weakTopics[q.topic]=(state.weakTopics[q.topic]||0)+1;
+  recordStudy();save();renderPracticeRun();
+ });
+ $("#practice-next")?.addEventListener("click",()=>{
+  if(practiceIndex===practiceQuestions.length-1){finishPractice();return;}
+  practiceIndex++;renderPracticeRun();
+ });
+ $("#exit-practice").onclick=()=>navigate("practice");
+}
+function finishPractice() {
+ const correct=practiceQuestions.filter((q,i)=>practiceAnswers[i]===q.correct).length;
+ const result={date:today(),type:"Practice",score:Math.round(correct/practiceQuestions.length*100),correct,total:practiceQuestions.length};
+ state.scores.push(result);save();
+ $("#main").innerHTML=pageHead("PRACTICE COMPLETE","Session results","Review your performance and revisit any topics that need more work.")+
+ `<div class="card"><div class="eyebrow">YOUR SCORE</div><div class="stat">${result.score}%</div><h3>${correct} of ${practiceQuestions.length} correct</h3><div class="progress"><div style="width:${result.score}%"></div></div><p class="muted">Review the explanations for questions you missed. A higher score comes from understanding the reasoning, not just memorizing answers.</p><div class="row"><button class="btn primary" id="again">Practice again</button><button class="btn" id="practice-home">Back to practice</button></div></div>`;
+ $("#again").onclick=()=>navigate("practice");
+ $("#practice-home").onclick=()=>navigate("practice");
+}
+function startExam() {
+ examQuestions=allQuestions().sort(()=>Math.random()-.5).slice(0,30);
+ examAnswers=Array( examQuestions.length ).fill(null);examFinished=false;
+ page="exam";renderExam();
+}
+function renderExam() {
+ if(examFinished){renderExamResults();return;}
+ const i=window.examIndex||0,q=examQuestions[i];
+ if(!q){window.examIndex=0;navigate("exam");return;}
+ $("#main").innerHTML=pageHead("MOCK EXAM",`Question ${i+1} of ${examQuestions.length}`,"Mixed-topic assessment. Select the best answer for each question. Check your work before submitting the exam.")+
+ `<div class="row" style="margin-bottom:12px"><span class="pill">${examAnswers.filter(x=>x!==null).length} answered</span><span class="pill">Suggested time: 60 minutes</span></div><div class="progress"><div style="width:${(i+1)/examQuestions.length*100}%"></div></div>
+ <div class="practice-card"><div class="eyebrow">${esc(q.topicTitle)}</div><h2>${esc(q.q)}</h2>${q.options.map((o,j)=>`<label class="answer"><input type="radio" name="exam-answer" value="${j}" ${examAnswers[i]===j?"checked":""}><span>${esc(o)}</span></label>`).join("")}
+ <div class="row" style="margin-top:20px"><button class="btn" id="exam-prev" ${i===0?"disabled":""}>← Previous</button><button class="btn" id="exam-next">${i===examQuestions.length-1?"Review answers":"Next →"}</button></div></div>
+ <div class="card"><h3>Question navigator</h3><div class="row">${examQuestions.map((_,j)=>`<button class="btn ${examAnswers[j]!==null?"soft":""}" data-exam-index="${j}">${j+1}</button>`).join("")}</div><p class="muted small">Your answers are kept while you navigate. This mock exam has no enforced timer.</p><button class="btn primary" style="margin-top:12px" id="submit-exam">Submit mock exam</button></div>`;
+ $('input[name="exam-answer"]')?.addEventListener("change",e=>{examAnswers[i]=+e.target.value;renderExam();});
+ $("#exam-prev").onclick=()=>{window.examIndex=i-1;renderExam();};
+ $("#exam-next").onclick=()=>{window.examIndex=Math.min(i+1,examQuestions.length-1);renderExam();};
+ $$("[data-exam-index]").forEach(b=>b.onclick=()=>{window.examIndex=+b.dataset.examIndex;renderExam();});
+ $("#submit-exam").onclick=()=>{
+  if(examAnswers.some(a=>a===null)&&!confirm("Some questions are unanswered. Submit anyway?"))return;
+  examFinished=true;renderExamResults();
+ };
+}
+function renderExamResults() {
+ const correct=examQuestions.filter((q,i)=>examAnswers[i]===q.correct).length;
+ const score=Math.round(correct/examQuestions.length*100);
+ state.scores.push({date:today(),type:"Mock exam",score,correct,total:examQuestions.length});
+ examQuestions.forEach((q,i)=>{if(examAnswers[i]!==q.correct)state.weakTopics[q.topic]=(state.weakTopics[q.topic]||0)+1;});
+ recordStudy();save();
+ $("#main").innerHTML=pageHead("MOCK EXAM RESULTS","Assessment complete","Use the explanations to identify topics to review before trying another mixed-topic test.")+
+ `<div class="card"><div class="stat">${score}%</div><h3>${correct} / ${examQuestions.length} correct</h3><div class="progress"><div style="width:${score}%"></div></div><p class="muted">This practice score is not an official CBE score or a prediction of your exam result.</p><div class="row"><button class="btn primary" id="new-exam">New mock exam</button><button class="btn" id="exam-review">Review answers</button><button class="btn" id="exam-home">Dashboard</button></div></div>
+ <h2 style="margin-top:25px">Answer review</h2>${examQuestions.map((q,i)=>`<details><summary>${i+1}. ${esc(q.q)} — ${examAnswers[i]===q.correct?"Correct":"Incorrect"}</summary><p><strong>Your answer:</strong> ${examAnswers[i]===null?"Not answered":esc(q.options[examAnswers[i]])}</p><p><strong>Correct answer:</strong> ${esc(q.options[q.correct])}</p><p>${esc(q.why)}</p></details>`).join("")}`;
+ $("#new-exam").onclick=()=>{window.examIndex=0;startExam();};
+ $("#exam-review").onclick=()=>{$("details")?.setAttribute("open","");};
+ $("#exam-home").onclick=()=>navigate("home");
+}
+function renderExamEntry() {
+ $("#main").innerHTML=pageHead("ASSESSMENT","Mock exam","Practice with a mixed-topic assessment.")+`<div class="card"><h2>30 questions</h2><p>Questions are selected from all course units. The suggested time is 60 minutes, but the site does not enforce a countdown.</p><button class="btn primary" id="begin-exam">Begin exam</button></div>`;
+ $("#begin-exam").onclick=()=>{window.examIndex=0;startExam();};
+}
+function renderFormulas() {
+ const groups=[
+ ["Linear equations and functions",[
+ ["Slope","m = (y₂ − y₁)/(x₂ − x₁)"],["Slope-intercept form","y = mx + b"],["Point-slope form","y − y₁ = m(x − x₁)"]]],
+ ["Quadratics",[
+ ["Standard form","y = ax² + bx + c"],["Quadratic formula","x = (−b ± √(b² − 4ac))/(2a)"],["Discriminant","D = b² − 4ac"],["Vertex x-coordinate","x = −b/(2a)"],["Vertex form","y = a(x − h)² + k"],["Difference of squares","a² − b² = (a − b)(a + b)"]]],
+ ["Exponents and radicals",[
+ ["Product rule","xᵃ · xᵇ = xᵃ⁺ᵇ"],["Quotient rule","xᵃ/xᵇ = xᵃ⁻ᵇ"],["Power of a power","(xᵃ)ᵇ = xᵃᵇ"],["Rational exponent","x^(1/n) = ⁿ√x"]]],
+ ["Exponential and logarithmic",[
+ ["Exponential model","y = abˣ"],["Compound interest","A = P(1 + r/n)ⁿᵗ"],["Logarithm definition","log_b(x) = y ⇔ bʸ = x"],["Product rule","log_b(xy) = log_b(x) + log_b(y)"],["Quotient rule","log_b(x/y) = log_b(x) − log_b(y)"],["Power rule","log_b(xᵖ) = p log_b(x)"]]],
+ ["Sequences and probability",[
+ ["Arithmetic term","aₙ = a₁ + (n−1)d"],["Geometric term","aₙ = a₁rⁿ⁻¹"],["Arithmetic series","Sₙ = n(a₁ + aₙ)/2"],["Basic probability","P(A) = favorable outcomes / total outcomes"],["Complement","P(not A) = 1 − P(A)"]]]
+ ];
+ $("#main").innerHTML=pageHead("REFERENCE","Formula library","A quick reference for formulas used in the course. Make sure you understand when each formula applies, not just how to copy it.")+groups.map(g=>`<section class="card" style="margin-bottom:18px"><h2>${esc(g[0])}</h2><table><tbody>${g[1].map(r=>`<tr><td>${esc(r[0])}</td><td><strong>${esc(r[1])}</strong></td></tr>`).join("")}</tbody></table></section>`).join("")+
+ `<div class="note"><strong>Study tip:</strong> For every formula, identify what each variable represents, check any restrictions, and practice choosing the right formula for a question.</div>`;
+}
+function renderNotes() {
+ $("#main").innerHTML=pageHead("PERSONAL STUDY SPACE","My notes","Write down formulas, questions to revisit, and concepts you want to review. Your notes are saved in this browser.")+
+ `<div class="card"><label for="notes-area"><strong>Study notes</strong></label><textarea id="notes-area" placeholder="Example: I need more practice with factoring quadratics...">${esc(state.notes)}</textarea><div class="row" style="margin-top:12px"><button class="btn primary" id="save-notes">Save notes</button><span class="muted small">Saved locally on this device.</span></div></div>`;
+ $("#save-notes").onclick=()=>{state.notes=$("#notes-area").value;save();toast("Notes saved.");};
+}
+function renderProgress() {
+ const scores=state.scores;
+ const avg=scores.length?Math.round(scores.reduce((s,x)=>s+x.score,0)/scores.length):0;
+ const recent=scores.slice(-8).reverse();
+ const weak=Object.entries(state.weakTopics).sort((a,b)=>b[1]-a[1]);
+ $("#main").innerHTML=pageHead("YOUR DATA","Progress and review","Track your completed lessons, practice results, study streak, and topics that may need more attention.")+
+ `<div class="grid"><div class="card"><div class="stat">${pct()}%</div><div class="stat-label">Lessons complete</div></div><div class="card"><div class="stat">${avg}%</div><div class="stat-label">Average assessment score</div></div><div class="card"><div class="stat">${scores.length}</div><div class="stat-label">Saved practice sessions</div></div></div>
+ <div class="two-col" style="margin-top:20px"><div class="card"><h2>Assessment history</h2>${recent.length?recent.map(s=>`<div class="row" style="padding:11px 0;border-bottom:1px solid var(--line)"><div><strong>${esc(s.type)}</strong><div class="muted small">${esc(s.date)} · ${s.correct}/${s.total}</div></div><strong>${s.score}%</strong></div>`).join(""):`<p class="muted">No completed assessments yet. Start a practice session or mock exam to begin tracking scores.</p>`}</div>
+ <div class="card"><h2>Topics to review</h2>${weak.length?weak.map(([id,n])=>`<div class="row" style="padding:10px 0;border-bottom:1px solid var(--line)"><span>${esc(units.find(u=>u.id===id)?.title||id)}</span><span class="pill orange">${n} missed</span></div>`).join(""):`<p class="muted">Missed-question tracking will appear here after you practice.</p>`}<p class="muted small">This is a rough review guide based on recorded wrong answers, not a formal measure of mastery.</p></div></div>
+ <div class="card" style="margin-top:20px"><h2>Backup your progress</h2><p class="muted">Export your progress and notes to a JSON file. Import that file later to restore the data in this browser or another browser.</p><div class="row"><button class="btn primary" id="export-data">Export progress</button><label class="btn" for="import-file">Import progress</label><input id="import-file" type="file" accept=".json,application/json" class="hidden"></div></div>
+ <div class="card" style="margin-top:20px"><h2>Reset progress</h2><p class="muted">This removes completion data, notes, and saved scores from this browser. Export a backup first if you want to keep them.</p><button class="btn danger" id="reset-data">Reset all progress</button></div>`;
+ $("#export-data").onclick=()=>{
+  const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="algebra2cbe-progress.json";a.click();URL.revokeObjectURL(url);
+ };
+ $("#import-file").onchange=async e=>{
+  const f=e.target.files[0];if(!f)return;
+  try{
+   const data=JSON.parse(await f.text());
+   if(!data||typeof data!=="object"||!Array.isArray(data.completed)||!Array.isArray(data.scores))throw new Error("Invalid file");
+   if(!confirm("Import this backup and replace your current progress?"))return;
+   state={...freshState(),...data};save();toast("Progress imported.");renderProgress();
+  }catch(err){toast("Could not import that file.");}
+ };
+ $("#reset-data").onclick=()=>{
+  if(confirm("Delete all Algebra 2 Academy progress and notes in this browser? This cannot be undone unless you have a backup.")){
+   state=freshState();save();navigate("home");toast("Progress reset.");
+  }
+ };
+}
+
+function startExamFromPage() {window.examIndex=0;startExam();}
+const oldExamRender=renderExam;
+function renderExamPage() {
+ $("#main").innerHTML=pageHead("ASSESSMENT","Mock exam","Test your understanding across course units.")+
+ `<div class="card"><h2>Before you begin</h2><ul><li>30 mixed-topic questions.</li><li>Suggested duration: 60 minutes.</li><li>Review explanations after submitting.</li><li>Your result is saved locally.</li></ul><button class="btn primary" id="begin-exam">Begin mock exam</button></div>`;
+ $("#begin-exam").onclick=()=>{window.examIndex=0;startExam();};
+}
+const originalRender=render;
+render = function() {
+ updateHeader();
+ if(page==="exam" && !examQuestions.length) {renderExamPage();return;}
+ originalRender();
+};
+render();
 </script>
 </body>
 </html>
